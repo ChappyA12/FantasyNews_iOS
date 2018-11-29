@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "247096ED63089D245483BEBDB20EA437"
+               BlueprintIdentifier = "23608E10B5F5FD700449FA2F738333D4"
                BlueprintName = "ZFDragableModalTransition"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libZFDragableModalTransition.a">

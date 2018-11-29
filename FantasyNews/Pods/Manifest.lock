@@ -8,6 +8,9 @@ PODS:
   - JSONModel (1.7.0)
   - MGSwipeTableCell (1.6.7)
   - Onboard (2.3.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - ZFDragableModalTransition (0.6)
 
 DEPENDENCIES:
@@ -19,6 +22,7 @@ DEPENDENCIES:
   - JSONModel
   - MGSwipeTableCell
   - Onboard
+  - SDWebImage
   - ZFDragableModalTransition
 
 SPEC REPOS:
@@ -31,6 +35,7 @@ SPEC REPOS:
     - JSONModel
     - MGSwipeTableCell
     - Onboard
+    - SDWebImage
     - ZFDragableModalTransition
 
 SPEC CHECKSUMS:
@@ -42,8 +47,9 @@ SPEC CHECKSUMS:
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
-PODFILE CHECKSUM: e789482ef582cddcd810b526e77196f47c040c2d
+PODFILE CHECKSUM: 12a4cf4d3f96d7ffb425ea7ce074a4c46426b5d1
 
 COCOAPODS: 1.5.3

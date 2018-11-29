@@ -3,6 +3,7 @@ inhibit_all_warnings!
 
 target 'FantasyNews' do
   pod 'JSONModel'
+  pod 'SDWebImage'
   pod 'ZFDragableModalTransition'
   pod 'HMSegmentedControl'
   pod 'MGSwipeTableCell'
