@@ -13,6 +13,8 @@
 @interface MainViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) UISearchController *searchController;
+@property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSArray <RotoworldNews *> *news;
 
 @end
@@ -21,19 +23,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self setUpTableView];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [self refreshNews];
+}
+
+- (void)refreshNews {
     [FNAPI.rotoworld newsWithStartingArticleID:0 completion:^(NSArray<RotoworldNews *> *articles) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.news = articles;
+            [self.refreshControl endRefreshing];
             [self.tableView reloadData];
         });
     }];
 }
+
+#pragma mark - tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.news.count;
@@ -50,6 +57,20 @@
     }
     cell.news = self.news[indexPath.row];
     return cell;
+}
+
+- (void)setUpTableView {
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchBar.placeholder = @"Search Players";
+    self.searchController.searchBar.delegate = self;
+    self.navigationItem.searchController = self.searchController;
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = UIColor.FNWhiteTextColor;
+    [self.refreshControl addTarget:self action:@selector(refreshNews)
+                  forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = self.refreshControl;
 }
 
 @end
