@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  FantasyNews
 //
 //  Created by Chappy Asel on 11/28/18.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
 

@@ -34,4 +34,16 @@
     return self.articleID == other.articleID;
 }
 
+- (NSString *)fullName {
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
+- (NSString *)teamPosition {
+    return [NSString stringWithFormat:@"%@ | %@", self.team, self.position];
+}
+
+- (NSURL *)imageURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://www.rotoworld.com/images/headshots/NBA/%ld.jpg", self.playerID]];
+}
+
 @end

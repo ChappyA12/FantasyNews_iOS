@@ -17,8 +17,11 @@
 		5004BD1121AFA7C700C2D43F /* RotoworldPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1021AFA7C700C2D43F /* RotoworldPlayer.m */; };
 		5004BD1521AFAD3A00C2D43F /* RotoworldTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1421AFAD3A00C2D43F /* RotoworldTeam.m */; };
 		5004BD1B21AFAF4D00C2D43F /* JSONValueTransformer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1A21AFAF4C00C2D43F /* JSONValueTransformer+UIColor.m */; };
+		5004BD1F21AFB99B00C2D43F /* NewsOverviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1D21AFB99B00C2D43F /* NewsOverviewTableViewCell.m */; };
+		5004BD2021AFB99B00C2D43F /* NewsOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5004BD1E21AFB99B00C2D43F /* NewsOverviewTableViewCell.xib */; };
+		5004BD2421AFC46500C2D43F /* TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD2221AFC46500C2D43F /* TimeAgo.m */; };
 		50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780921AF66CF00F2DB59 /* AppDelegate.m */; };
-		50A1780D21AF66CF00F2DB59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780C21AF66CF00F2DB59 /* ViewController.m */; };
+		50A1780D21AF66CF00F2DB59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780C21AF66CF00F2DB59 /* MainViewController.m */; };
 		50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1780E21AF66CF00F2DB59 /* Main.storyboard */; };
 		50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50A1781121AF66CF00F2DB59 /* FantasyNews.xcdatamodeld */; };
 		50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781421AF66D000F2DB59 /* Assets.xcassets */; };
@@ -50,11 +53,16 @@
 		5004BD1421AFAD3A00C2D43F /* RotoworldTeam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotoworldTeam.m; sourceTree = "<group>"; };
 		5004BD1921AFAF4C00C2D43F /* JSONValueTransformer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+UIColor.h"; sourceTree = "<group>"; };
 		5004BD1A21AFAF4C00C2D43F /* JSONValueTransformer+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+UIColor.m"; sourceTree = "<group>"; };
+		5004BD1C21AFB99B00C2D43F /* NewsOverviewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsOverviewTableViewCell.h; sourceTree = "<group>"; };
+		5004BD1D21AFB99B00C2D43F /* NewsOverviewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsOverviewTableViewCell.m; sourceTree = "<group>"; };
+		5004BD1E21AFB99B00C2D43F /* NewsOverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsOverviewTableViewCell.xib; sourceTree = "<group>"; };
+		5004BD2221AFC46500C2D43F /* TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeAgo.m; sourceTree = "<group>"; };
+		5004BD2321AFC46500C2D43F /* TimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeAgo.h; sourceTree = "<group>"; };
 		50A1780521AF66CF00F2DB59 /* FantasyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A1780821AF66CF00F2DB59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A1780921AF66CF00F2DB59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		50A1780B21AF66CF00F2DB59 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		50A1780C21AF66CF00F2DB59 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		50A1780B21AF66CF00F2DB59 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		50A1780C21AF66CF00F2DB59 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		50A1780F21AF66CF00F2DB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50A1781221AF66CF00F2DB59 /* FantasyNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FantasyNews.xcdatamodel; sourceTree = "<group>"; };
 		50A1781421AF66D000F2DB59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,10 +96,10 @@
 		5004BCEE21AF884200C2D43F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */,
-				50A1781421AF66D000F2DB59 /* Assets.xcassets */,
-				50A1781921AF66D000F2DB59 /* Info.plist */,
 				50A1781A21AF66D000F2DB59 /* main.m */,
+				50A1781921AF66D000F2DB59 /* Info.plist */,
+				50A1781421AF66D000F2DB59 /* Assets.xcassets */,
+				50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */,
 				50A1781121AF66CF00F2DB59 /* FantasyNews.xcdatamodeld */,
 			);
 			path = "Supporting Files";
@@ -100,17 +108,20 @@
 		5004BCEF21AF885D00C2D43F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				50A1780B21AF66CF00F2DB59 /* ViewController.h */,
-				50A1780C21AF66CF00F2DB59 /* ViewController.m */,
+				50A1780B21AF66CF00F2DB59 /* MainViewController.h */,
+				50A1780C21AF66CF00F2DB59 /* MainViewController.m */,
+				5004BD2121AFB99F00C2D43F /* News Overview TVC */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		5004BCF021AF886E00C2D43F /* Models */ = {
+		5004BCF021AF886E00C2D43F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5004BCF121AF888900C2D43F /* FNAPI */,
+				5004BD2521AFC47900C2D43F /* Utility */,
 			);
-			path = Models;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		5004BCF121AF888900C2D43F /* FNAPI */ = {
@@ -236,6 +247,33 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		5004BD2121AFB99F00C2D43F /* News Overview TVC */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD1C21AFB99B00C2D43F /* NewsOverviewTableViewCell.h */,
+				5004BD1D21AFB99B00C2D43F /* NewsOverviewTableViewCell.m */,
+				5004BD1E21AFB99B00C2D43F /* NewsOverviewTableViewCell.xib */,
+			);
+			path = "News Overview TVC";
+			sourceTree = "<group>";
+		};
+		5004BD2521AFC47900C2D43F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD2621AFC48B00C2D43F /* TimeAgo */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		5004BD2621AFC48B00C2D43F /* TimeAgo */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD2321AFC46500C2D43F /* TimeAgo.h */,
+				5004BD2221AFC46500C2D43F /* TimeAgo.m */,
+			);
+			path = TimeAgo;
+			sourceTree = "<group>";
+		};
 		50A177FC21AF66CF00F2DB59 = {
 			isa = PBXGroup;
 			children = (
@@ -257,8 +295,7 @@
 		50A1780721AF66CF00F2DB59 /* FantasyNews */ = {
 			isa = PBXGroup;
 			children = (
-				5004BCF121AF888900C2D43F /* FNAPI */,
-				5004BCF021AF886E00C2D43F /* Models */,
+				5004BCF021AF886E00C2D43F /* Classes */,
 				5004BCEF21AF885D00C2D43F /* View Controllers */,
 				50A1780821AF66CF00F2DB59 /* AppDelegate.h */,
 				50A1780921AF66CF00F2DB59 /* AppDelegate.m */,
@@ -336,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50A1781821AF66D000F2DB59 /* LaunchScreen.storyboard in Resources */,
+				5004BD2021AFB99B00C2D43F /* NewsOverviewTableViewCell.xib in Resources */,
 				50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */,
 				50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */,
 			);
@@ -403,7 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50A1780D21AF66CF00F2DB59 /* ViewController.m in Sources */,
+				50A1780D21AF66CF00F2DB59 /* MainViewController.m in Sources */,
 				5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */,
 				5004BCF421AF88AE00C2D43F /* FNAPI.m in Sources */,
 				5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */,
@@ -413,10 +451,12 @@
 				5004BD1121AFA7C700C2D43F /* RotoworldPlayer.m in Sources */,
 				50A1781B21AF66D000F2DB59 /* main.m in Sources */,
 				5004BD0D21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m in Sources */,
+				5004BD2421AFC46500C2D43F /* TimeAgo.m in Sources */,
 				50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */,
 				5004BD0621AF8B9A00C2D43F /* FNAPIRequest.m in Sources */,
 				5004BCF721AF88D600C2D43F /* RotoworldAPI.m in Sources */,
 				5004BD0921AF95D100C2D43F /* RotoworldNews.m in Sources */,
+				5004BD1F21AFB99B00C2D43F /* NewsOverviewTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

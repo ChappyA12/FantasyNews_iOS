@@ -17,4 +17,8 @@
 @property (nonatomic) NSString *team;
 @property (nonatomic) NSDate *birthday;
 
+@property (nonatomic) NSString <Ignore> *fullName;
+@property (nonatomic) NSString <Ignore> *teamPosition;
+@property (nonatomic) NSURL <Ignore> *imageURL;
+
 @end

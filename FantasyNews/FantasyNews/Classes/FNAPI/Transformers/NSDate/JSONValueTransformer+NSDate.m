@@ -12,7 +12,7 @@
 
 - (NSDate *)NSDateFromNSString:(NSString *)string {
     NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"EST"];
     formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss";
     return [formatter dateFromString:string];
 }
