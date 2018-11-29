@@ -6,6 +6,7 @@ PODS:
   - Fabric (1.7.11)
   - HMSegmentedControl (1.5.5)
   - JSONModel (1.7.0)
+  - LGSideMenuController (2.1.1)
   - MGSwipeTableCell (1.6.7)
   - Onboard (2.3.3)
   - SDWebImage (4.4.2):
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - Fabric
   - HMSegmentedControl
   - JSONModel
+  - LGSideMenuController
   - MGSwipeTableCell
   - Onboard
   - SDWebImage
@@ -33,6 +35,7 @@ SPEC REPOS:
     - Fabric
     - HMSegmentedControl
     - JSONModel
+    - LGSideMenuController
     - MGSwipeTableCell
     - Onboard
     - SDWebImage
@@ -45,11 +48,12 @@ SPEC CHECKSUMS:
   Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
-PODFILE CHECKSUM: 12a4cf4d3f96d7ffb425ea7ce074a4c46426b5d1
+PODFILE CHECKSUM: d3778c9478eade44ff7303872cf27a706b26cdc0
 
 COCOAPODS: 1.5.3

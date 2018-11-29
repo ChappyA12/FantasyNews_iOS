@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <LGSideMenuController/LGSideMenuController.h>
+#import <LGSideMenuController/UIViewController+LGSideMenuController.h>
+#import "MainViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UIColor reloadNavigationBarAppearance];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
+    MainViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self.window makeKeyAndVisible];
+    LGSideMenuController *svc = [[LGSideMenuController alloc] initWithRootViewController:nav
+                                                                      leftViewController:lvc
+                                                                     rightViewController:nil];
+    [self.window.rootViewController presentViewController:svc animated:NO completion:NULL];
+    svc.leftViewWidth = 300;
+    svc.leftViewInitialOffsetX = -300;
+    svc.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideBelow;
+    svc.leftViewStatusBarStyle = UIStatusBarStyleLightContent;
+    svc.leftViewCoverAlpha = 0;
+    svc.rootViewStatusBarStyle = UIStatusBarStyleLightContent;
+    svc.rootViewCoverAlphaForLeftView = 0.1;
+    svc.rootViewCoverColorForLeftView = UIColor.blackColor;
+    svc.rootViewLayerShadowColor = UIColor.clearColor;
     return YES;
 }
 

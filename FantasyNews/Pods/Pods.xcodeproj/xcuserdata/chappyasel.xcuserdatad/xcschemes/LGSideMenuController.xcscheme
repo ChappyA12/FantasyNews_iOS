@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A35D029411896A593B4483DDF3C0501"
-               BlueprintName = "SDWebImage"
+               BlueprintIdentifier = "B609F12318C90168431C03FF7DFD198F"
+               BlueprintName = "LGSideMenuController"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSDWebImage.a">
+               BuildableName = "libLGSideMenuController.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
