@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780921AF66CF00F2DB59 /* AppDelegate.m */; };
+		50A1780D21AF66CF00F2DB59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780C21AF66CF00F2DB59 /* ViewController.m */; };
+		50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1780E21AF66CF00F2DB59 /* Main.storyboard */; };
+		50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50A1781121AF66CF00F2DB59 /* FantasyNews.xcdatamodeld */; };
+		50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781421AF66D000F2DB59 /* Assets.xcassets */; };
+		50A1781821AF66D000F2DB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */; };
+		50A1781B21AF66D000F2DB59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1781A21AF66D000F2DB59 /* main.m */; };
+		A83260C8776A909FC5D8425C /* libPods-FantasyNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16B6026FB308039B44B19660 /* Pods-FantasyNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FantasyNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FantasyNews/Pods-FantasyNews.debug.xcconfig"; sourceTree = "<group>"; };
+		32DF01C83192C60F7E4BEF05 /* Pods-FantasyNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FantasyNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-FantasyNews/Pods-FantasyNews.release.xcconfig"; sourceTree = "<group>"; };
+		50A1780521AF66CF00F2DB59 /* FantasyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A1780821AF66CF00F2DB59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		50A1780921AF66CF00F2DB59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		50A1780B21AF66CF00F2DB59 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		50A1780C21AF66CF00F2DB59 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		50A1780F21AF66CF00F2DB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50A1781221AF66CF00F2DB59 /* FantasyNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FantasyNews.xcdatamodel; sourceTree = "<group>"; };
+		50A1781421AF66D000F2DB59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50A1781721AF66D000F2DB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		50A1781921AF66D000F2DB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50A1781A21AF66D000F2DB59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FantasyNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50A1780221AF66CF00F2DB59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83260C8776A909FC5D8425C /* libPods-FantasyNews.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DF5D2BC98015EEE08A7E875 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16B6026FB308039B44B19660 /* Pods-FantasyNews.debug.xcconfig */,
+				32DF01C83192C60F7E4BEF05 /* Pods-FantasyNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		50A177FC21AF66CF00F2DB59 = {
+			isa = PBXGroup;
+			children = (
+				50A1780721AF66CF00F2DB59 /* FantasyNews */,
+				50A1780621AF66CF00F2DB59 /* Products */,
+				0DF5D2BC98015EEE08A7E875 /* Pods */,
+				DBBCF10145B7DECA7E45C46D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		50A1780621AF66CF00F2DB59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50A1780521AF66CF00F2DB59 /* FantasyNews.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50A1780721AF66CF00F2DB59 /* FantasyNews */ = {
+			isa = PBXGroup;
+			children = (
+				50A1780821AF66CF00F2DB59 /* AppDelegate.h */,
+				50A1780921AF66CF00F2DB59 /* AppDelegate.m */,
+				50A1780B21AF66CF00F2DB59 /* ViewController.h */,
+				50A1780C21AF66CF00F2DB59 /* ViewController.m */,
+				50A1780E21AF66CF00F2DB59 /* Main.storyboard */,
+				50A1781421AF66D000F2DB59 /* Assets.xcassets */,
+				50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */,
+				50A1781921AF66D000F2DB59 /* Info.plist */,
+				50A1781A21AF66D000F2DB59 /* main.m */,
+				50A1781121AF66CF00F2DB59 /* FantasyNews.xcdatamodeld */,
+			);
+			path = FantasyNews;
+			sourceTree = "<group>";
+		};
+		DBBCF10145B7DECA7E45C46D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50A1780421AF66CF00F2DB59 /* FantasyNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50A1781E21AF66D000F2DB59 /* Build configuration list for PBXNativeTarget "FantasyNews" */;
+			buildPhases = (
+				40772C368BE3B4EA8E835742 /* [CP] Check Pods Manifest.lock */,
+				50A1780121AF66CF00F2DB59 /* Sources */,
+				50A1780221AF66CF00F2DB59 /* Frameworks */,
+				50A1780321AF66CF00F2DB59 /* Resources */,
+				5B3B29460E424F9FB7833786 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FantasyNews;
+			productName = FantasyNews;
+			productReference = 50A1780521AF66CF00F2DB59 /* FantasyNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50A177FD21AF66CF00F2DB59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = CA;
+				TargetAttributes = {
+					50A1780421AF66CF00F2DB59 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 50A1780021AF66CF00F2DB59 /* Build configuration list for PBXProject "FantasyNews" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50A177FC21AF66CF00F2DB59;
+			productRefGroup = 50A1780621AF66CF00F2DB59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50A1780421AF66CF00F2DB59 /* FantasyNews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50A1780321AF66CF00F2DB59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A1781821AF66D000F2DB59 /* LaunchScreen.storyboard in Resources */,
+				50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */,
+				50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40772C368BE3B4EA8E835742 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FantasyNews-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B3B29460E424F9FB7833786 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FantasyNews/Pods-FantasyNews-resources.sh",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/api.amplitude.com.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoCaLimitedRsaCertificationAuthority.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaCA.der",
+				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaDomainValidationCA.der",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Appirater/Appirater.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/api.amplitude.com.der",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ComodoCaLimitedRsaCertificationAuthority.der",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ComodoRsaCA.der",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ComodoRsaDomainValidationCA.der",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Appirater.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FantasyNews/Pods-FantasyNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50A1780121AF66CF00F2DB59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A1780D21AF66CF00F2DB59 /* ViewController.m in Sources */,
+				50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */,
+				50A1781B21AF66D000F2DB59 /* main.m in Sources */,
+				50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		50A1780E21AF66CF00F2DB59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50A1780F21AF66CF00F2DB59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50A1781721AF66D000F2DB59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50A1781C21AF66D000F2DB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		50A1781D21AF66D000F2DB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50A1781F21AF66D000F2DB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16B6026FB308039B44B19660 /* Pods-FantasyNews.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q82S7VERUD;
+				INFOPLIST_FILE = FantasyNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chappyasel.fantasynews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50A1782021AF66D000F2DB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32DF01C83192C60F7E4BEF05 /* Pods-FantasyNews.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q82S7VERUD;
+				INFOPLIST_FILE = FantasyNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chappyasel.fantasynews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50A1780021AF66CF00F2DB59 /* Build configuration list for PBXProject "FantasyNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A1781C21AF66D000F2DB59 /* Debug */,
+				50A1781D21AF66D000F2DB59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50A1781E21AF66D000F2DB59 /* Build configuration list for PBXNativeTarget "FantasyNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A1781F21AF66D000F2DB59 /* Debug */,
+				50A1782021AF66D000F2DB59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50A1781121AF66CF00F2DB59 /* FantasyNews.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50A1781221AF66CF00F2DB59 /* FantasyNews.xcdatamodel */,
+			);
+			currentVersion = 50A1781221AF66CF00F2DB59 /* FantasyNews.xcdatamodel */;
+			path = FantasyNews.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 50A177FD21AF66CF00F2DB59 /* Project object */;
+}

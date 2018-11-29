@@ -1,0 +1,14 @@
+platform :ios, '11.0'
+inhibit_all_warnings!
+
+target 'FantasyNews' do
+  pod 'JSONModel'
+  pod 'ZFDragableModalTransition'
+  pod 'HMSegmentedControl'
+  pod 'MGSwipeTableCell'
+  pod 'Appirater'
+  pod 'Onboard'
+  pod 'Fabric'
+  pod 'Crashlytics'
+  pod 'Amplitude-iOS'
+end
