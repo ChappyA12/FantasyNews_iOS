@@ -16,7 +16,8 @@
         request.path = [request.path stringByAppendingString:@"?"];
         for (NSString *key in request.params.allKeys) {
             NSString *value = request.params[key];
-            request.path = [NSString stringWithFormat:@"%@%@=%@&",request.path, key, [value stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+            request.path = [NSString stringWithFormat:@"%@%@=%@&",request.path,
+                                key, [value stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
         }
         request.path = [request.path substringToIndex:request.path.length-1];
     }

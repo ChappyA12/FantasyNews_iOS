@@ -22,7 +22,22 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [FNAPI.rotoworld newsWithStartingArticleID:0 completion:^(NSArray<NSObject *> *articles) {
+    [FNAPI.rotoworld players:^(NSArray<RotoworldPlayer *> *players) {
+        
+    }];
+    [FNAPI.rotoworld newsWithStartingArticleID:0 completion:^(NSArray<RotoworldNews *> *articles) {
+        
+    }];
+    [FNAPI.rotoworld newsForPlayerID:927 completion:^(NSArray<RotoworldNews *> *articles) {
+        
+    }];
+    [FNAPI.rotoworld newsHeadlines:^(NSArray<RotoworldNews *> *articles) {
+        
+    }];
+    [FNAPI.rotoworld imageBaseURLs:^(NSString *teamURL, NSString *playerURL) {
+        
+    }];
+    [FNAPI.rotoworld teams:^(NSArray<RotoworldTeam *> *teams) {
         
     }];
 }

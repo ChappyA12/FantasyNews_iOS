@@ -8,12 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "FNAPIBase.h"
+#import "RotoworldPlayer.h"
+#import "RotoworldTeam.h"
+#import "RotoworldNews.h"
 
 @interface RotoworldAPI : FNAPIBase
 
 + (RotoworldAPI *)sharedInstance;
 
+- (void)players:(void(^)(NSArray<RotoworldPlayer *> *players))completion;
+
+- (void)teams:(void(^)(NSArray<RotoworldTeam *> *teams))completion;
+
 - (void)newsWithStartingArticleID:(NSInteger)articleID
-                       completion:(void(^)(NSArray<NSObject *> *articles))completion;
+                       completion:(void(^)(NSArray<RotoworldNews *> *articles))completion;
+
+- (void)newsForPlayerID:(NSInteger)playerID
+             completion:(void(^)(NSArray<RotoworldNews *> *articles))completion;
+
+- (void)newsHeadlines:(void(^)(NSArray<RotoworldNews *> *articles))completion;
+
+- (void)imageBaseURLs:(void(^)(NSString *teamURL, NSString *playerURL))completion;
 
 @end

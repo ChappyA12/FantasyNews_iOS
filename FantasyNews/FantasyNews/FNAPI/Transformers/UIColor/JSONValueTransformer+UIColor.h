@@ -1,14 +1,14 @@
 //
-//  ViewController.h
+//  JSONValueTransformer+UIColor.h
 //  FantasyNews
 //
 //  Created by Chappy Asel on 11/28/18.
 //  Copyright © 2018 CA. All rights reserved.
 //
 
+#import "JSONValueTransformer.h"
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface JSONValueTransformer (UIColor)
 
 @end
-

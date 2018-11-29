@@ -12,6 +12,11 @@
 		5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BCFA21AF891000C2D43F /* FantasyAPI.m */; };
 		5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD0121AF8B9A00C2D43F /* FNAPIBase.m */; };
 		5004BD0621AF8B9A00C2D43F /* FNAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD0421AF8B9A00C2D43F /* FNAPIRequest.m */; };
+		5004BD0921AF95D100C2D43F /* RotoworldNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD0821AF95D100C2D43F /* RotoworldNews.m */; };
+		5004BD0D21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD0C21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m */; };
+		5004BD1121AFA7C700C2D43F /* RotoworldPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1021AFA7C700C2D43F /* RotoworldPlayer.m */; };
+		5004BD1521AFAD3A00C2D43F /* RotoworldTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1421AFAD3A00C2D43F /* RotoworldTeam.m */; };
+		5004BD1B21AFAF4D00C2D43F /* JSONValueTransformer+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD1A21AFAF4C00C2D43F /* JSONValueTransformer+UIColor.m */; };
 		50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780921AF66CF00F2DB59 /* AppDelegate.m */; };
 		50A1780D21AF66CF00F2DB59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780C21AF66CF00F2DB59 /* ViewController.m */; };
 		50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1780E21AF66CF00F2DB59 /* Main.storyboard */; };
@@ -35,6 +40,16 @@
 		5004BD0221AF8B9A00C2D43F /* FNAPIBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNAPIBase.h; sourceTree = "<group>"; };
 		5004BD0321AF8B9A00C2D43F /* FNAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNAPIRequest.h; sourceTree = "<group>"; };
 		5004BD0421AF8B9A00C2D43F /* FNAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNAPIRequest.m; sourceTree = "<group>"; };
+		5004BD0721AF95D100C2D43F /* RotoworldNews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotoworldNews.h; sourceTree = "<group>"; };
+		5004BD0821AF95D100C2D43F /* RotoworldNews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotoworldNews.m; sourceTree = "<group>"; };
+		5004BD0B21AFA2E000C2D43F /* JSONValueTransformer+NSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+NSDate.h"; sourceTree = "<group>"; };
+		5004BD0C21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+NSDate.m"; sourceTree = "<group>"; };
+		5004BD0F21AFA7C700C2D43F /* RotoworldPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotoworldPlayer.h; sourceTree = "<group>"; };
+		5004BD1021AFA7C700C2D43F /* RotoworldPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotoworldPlayer.m; sourceTree = "<group>"; };
+		5004BD1321AFAD3A00C2D43F /* RotoworldTeam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RotoworldTeam.h; sourceTree = "<group>"; };
+		5004BD1421AFAD3A00C2D43F /* RotoworldTeam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RotoworldTeam.m; sourceTree = "<group>"; };
+		5004BD1921AFAF4C00C2D43F /* JSONValueTransformer+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONValueTransformer+UIColor.h"; sourceTree = "<group>"; };
+		5004BD1A21AFAF4C00C2D43F /* JSONValueTransformer+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+UIColor.m"; sourceTree = "<group>"; };
 		50A1780521AF66CF00F2DB59 /* FantasyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A1780821AF66CF00F2DB59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A1780921AF66CF00F2DB59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,6 +120,7 @@
 				5004BCF321AF88AE00C2D43F /* FNAPI.m */,
 				5004BCFD21AF8B3000C2D43F /* Managers */,
 				5004BCFE21AF8B3600C2D43F /* Models */,
+				5004BD0A21AFA2BF00C2D43F /* Transformers */,
 			);
 			path = FNAPI;
 			sourceTree = "<group>";
@@ -148,6 +164,9 @@
 		5004BCFF21AF8B4800C2D43F /* Rotoworld */ = {
 			isa = PBXGroup;
 			children = (
+				5004BD1221AFA7CF00C2D43F /* Player */,
+				5004BD1621AFAD3F00C2D43F /* Team */,
+				5004BD0E21AFA7B600C2D43F /* News */,
 			);
 			path = Rotoworld;
 			sourceTree = "<group>";
@@ -161,6 +180,60 @@
 				5004BD0421AF8B9A00C2D43F /* FNAPIRequest.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		5004BD0A21AFA2BF00C2D43F /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD1721AFAF2100C2D43F /* NSDate */,
+				5004BD1821AFAF2B00C2D43F /* UIColor */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+		5004BD0E21AFA7B600C2D43F /* News */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD0721AF95D100C2D43F /* RotoworldNews.h */,
+				5004BD0821AF95D100C2D43F /* RotoworldNews.m */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		5004BD1221AFA7CF00C2D43F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD0F21AFA7C700C2D43F /* RotoworldPlayer.h */,
+				5004BD1021AFA7C700C2D43F /* RotoworldPlayer.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		5004BD1621AFAD3F00C2D43F /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD1321AFAD3A00C2D43F /* RotoworldTeam.h */,
+				5004BD1421AFAD3A00C2D43F /* RotoworldTeam.m */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		5004BD1721AFAF2100C2D43F /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD0B21AFA2E000C2D43F /* JSONValueTransformer+NSDate.h */,
+				5004BD0C21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		5004BD1821AFAF2B00C2D43F /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				5004BD1921AFAF4C00C2D43F /* JSONValueTransformer+UIColor.h */,
+				5004BD1A21AFAF4C00C2D43F /* JSONValueTransformer+UIColor.m */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		50A177FC21AF66CF00F2DB59 = {
@@ -334,11 +407,16 @@
 				5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */,
 				5004BCF421AF88AE00C2D43F /* FNAPI.m in Sources */,
 				5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */,
+				5004BD1521AFAD3A00C2D43F /* RotoworldTeam.m in Sources */,
 				50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */,
+				5004BD1B21AFAF4D00C2D43F /* JSONValueTransformer+UIColor.m in Sources */,
+				5004BD1121AFA7C700C2D43F /* RotoworldPlayer.m in Sources */,
 				50A1781B21AF66D000F2DB59 /* main.m in Sources */,
+				5004BD0D21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m in Sources */,
 				50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */,
 				5004BD0621AF8B9A00C2D43F /* FNAPIRequest.m in Sources */,
 				5004BCF721AF88D600C2D43F /* RotoworldAPI.m in Sources */,
+				5004BD0921AF95D100C2D43F /* RotoworldNews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
