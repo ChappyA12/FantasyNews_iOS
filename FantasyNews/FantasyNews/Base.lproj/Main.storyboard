@@ -10,25 +10,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Left Side Menu View Controller-->
         <scene sceneID="6ob-Am-m8m">
             <objects>
-                <viewController storyboardIdentifier="menu" id="eat-YG-PXs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" id="eat-YG-PXs" customClass="LeftSideMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dIX-2K-FU4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgc-56-7Kh">
-                                <rect key="frame" x="35" y="175" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tic-Uf-RKT">
+                                <rect key="frame" x="0.0" y="194" width="414" height="628"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fyK-sd-0YL" firstAttribute="trailing" secondItem="Tic-Uf-RKT" secondAttribute="trailing" id="9fJ-OQ-yP4"/>
+                            <constraint firstItem="Tic-Uf-RKT" firstAttribute="leading" secondItem="fyK-sd-0YL" secondAttribute="leading" id="KA5-C7-m2n"/>
+                            <constraint firstItem="Tic-Uf-RKT" firstAttribute="top" secondItem="fyK-sd-0YL" secondAttribute="top" constant="150" id="ono-wn-2Oc"/>
+                            <constraint firstItem="fyK-sd-0YL" firstAttribute="bottom" secondItem="Tic-Uf-RKT" secondAttribute="bottom" constant="40" id="rwt-kc-jg0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fyK-sd-0YL"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Tic-Uf-RKT" id="W8L-kl-iS0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzd-kA-Tgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

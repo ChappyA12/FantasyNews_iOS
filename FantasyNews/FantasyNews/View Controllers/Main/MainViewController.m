@@ -11,12 +11,10 @@
 #import "FNAPI.h"
 
 @interface MainViewController ()
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) UISearchController *searchController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSArray <RotoworldNews *> *news;
-
 @end
 
 @implementation MainViewController
@@ -31,13 +29,23 @@
 }
 
 - (void)refreshNews {
-    [FNAPI.rotoworld newsWithStartingArticleID:0 completion:^(NSArray<RotoworldNews *> *articles) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.news = articles;
-            [self.refreshControl endRefreshing];
-            [self.tableView reloadData];
-        });
-    }];
+    if ([self.mode isEqualToString:MODE_RECENT]) {
+        [FNAPI.rotoworld newsWithStartingArticleID:0 completion:^(NSArray<RotoworldNews *> *articles) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.news = articles;
+                [self.refreshControl endRefreshing];
+                [self.tableView reloadData];
+            });
+        }];
+    } else {
+        [FNAPI.rotoworld newsHeadlines:^(NSArray<RotoworldNews *> *articles) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.news = articles;
+                [self.refreshControl endRefreshing];
+                [self.tableView reloadData];
+            });
+        }];
+    }
 }
 
 #pragma mark - tableView
@@ -71,6 +79,7 @@
     [self.refreshControl addTarget:self action:@selector(refreshNews)
                   forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = self.refreshControl;
+    self.extendedLayoutIncludesOpaqueBars = YES;
 }
 
 @end

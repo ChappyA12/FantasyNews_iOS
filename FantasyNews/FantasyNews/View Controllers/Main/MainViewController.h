@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define MODE_RECENT @"Recent"
+#define MODE_HEADLINES @"Headlines"
+
 @interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+
+@property (nonatomic) NSString *mode;
 
 @end
 

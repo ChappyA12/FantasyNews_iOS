@@ -22,6 +22,7 @@
     [UIColor reloadNavigationBarAppearance];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
+    vc.mode = MODE_RECENT;
     MainViewController *lvc = [storyboard instantiateViewControllerWithIdentifier:@"menu"];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self.window makeKeyAndVisible];
@@ -38,6 +39,7 @@
     svc.rootViewCoverAlphaForLeftView = 0.1;
     svc.rootViewCoverColorForLeftView = UIColor.blackColor;
     svc.rootViewLayerShadowColor = UIColor.clearColor;
+    svc.leftViewAnimationDuration = 0.5;
     return YES;
 }
 
