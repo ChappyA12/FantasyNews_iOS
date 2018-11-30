@@ -75,13 +75,13 @@
         <!--Lebron James-->
         <scene sceneID="1Rh-Ol-SLK">
             <objects>
-                <viewController storyboardIdentifier="player" title="Lebron James" id="eyy-Dd-Ntk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="player" title="Lebron James" id="eyy-Dd-Ntk" customClass="PlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qdl-79-kw1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8f1-iy-MSU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -94,7 +94,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z4A-xW-7lN"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="8f1-iy-MSU" id="pu5-1u-fQF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqx-Id-amV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

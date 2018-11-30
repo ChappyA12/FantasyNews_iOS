@@ -10,5 +10,6 @@
 #define Header_h
 
 #import "UIColor+FNColors.h"
+#import <LGSideMenuController/UIViewController+LGSideMenuController.h>
 
 #endif

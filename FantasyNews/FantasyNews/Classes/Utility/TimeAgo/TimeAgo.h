@@ -12,4 +12,6 @@
 
 + (NSString *)date:(NSDate *)date;
 
++ (NSString *)extendedDate:(NSDate *)date;
+
 @end

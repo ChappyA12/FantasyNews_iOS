@@ -7,7 +7,6 @@
 //
 
 #import "LeftSideMenuViewController.h"
-#import <LGSideMenuController/UIViewController+LGSideMenuController.h>
 #import "SideMenuTableViewCell.h"
 #import "MainViewController.h"
 

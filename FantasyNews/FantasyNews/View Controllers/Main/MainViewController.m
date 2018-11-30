@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "NewsOverviewTableViewCell.h"
+#import "ZFModalTransitionAnimator.h"
 #import "PlayerViewController.h"
 #import "FNAPI.h"
 
@@ -16,6 +17,7 @@
 @property (nonatomic) UISearchController *searchController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSArray <RotoworldNews *> *news;
+@property (nonatomic) ZFModalTransitionAnimator *animator;
 @end
 
 @implementation MainViewController
@@ -71,7 +73,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"player"];
-    [self.navigationController pushViewController:vc animated:YES];
+    vc.news = self.news[indexPath.row];
+    self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:vc];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    self.animator.bounces = NO;
+    self.animator.dragable = YES;
+    self.animator.behindViewScale = 1.0;
+    self.animator.behindViewAlpha = 0.8;
+    self.animator.transitionDuration = 0.5;
+    self.animator.direction = ZFModalTransitonDirectionRight;
+    vc.transitioningDelegate = self.animator;
+    [self presentViewController:vc animated:YES completion:nil];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

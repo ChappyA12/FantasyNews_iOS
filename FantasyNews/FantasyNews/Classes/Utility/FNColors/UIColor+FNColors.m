@@ -56,9 +56,9 @@
 
 + (UIStatusBarStyle)statusBarStyle {
     switch (self.colorScheme) {
-        case ColorSchemeDefault: return UIStatusBarStyleDefault;
-        case ColorSchemeDark:    return UIStatusBarStyleDefault;
-        default: return UIStatusBarStyleDefault;
+        case ColorSchemeDefault: return UIStatusBarStyleLightContent;
+        case ColorSchemeDark:    return UIStatusBarStyleLightContent;
+        default: return UIStatusBarStyleLightContent;
     }
 }
 

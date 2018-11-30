@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@class RotoworldNews;
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic) RotoworldNews *news;
 
 @end
-
-NS_ASSUME_NONNULL_END

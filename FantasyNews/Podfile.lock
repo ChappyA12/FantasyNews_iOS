@@ -1,6 +1,7 @@
 PODS:
   - Amplitude-iOS (4.3.1)
   - Appirater (2.3.1)
+  - BLKFlexibleHeightBar (1.0.2)
   - Crashlytics (3.10.7):
     - Fabric (~> 1.7.11)
   - Fabric (1.7.11)
@@ -17,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - Amplitude-iOS
   - Appirater
+  - BLKFlexibleHeightBar
   - Crashlytics
   - Fabric
   - HMSegmentedControl
@@ -31,6 +33,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Amplitude-iOS
     - Appirater
+    - BLKFlexibleHeightBar
     - Crashlytics
     - Fabric
     - HMSegmentedControl
@@ -44,6 +47,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Amplitude-iOS: df355e2be58972041acde9576a2ae97c217bf941
   Appirater: 44a4651f7912a17dc906b655f0c215d5bb768b84
+  BLKFlexibleHeightBar: b27572a69633d8e33f1f2bbc486b04d8e86f742d
   Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
   Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
@@ -54,6 +58,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
-PODFILE CHECKSUM: d3778c9478eade44ff7303872cf27a706b26cdc0
+PODFILE CHECKSUM: ddd8c2ad470da9981568b2ade32d1c0081afd81a
 
 COCOAPODS: 1.5.3
