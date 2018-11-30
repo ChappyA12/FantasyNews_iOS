@@ -16,6 +16,7 @@
 @property (nonatomic) NSString *method;
 @property (nonatomic) NSString *base;
 @property (nonatomic) NSString *path;
+@property (nonatomic) NSDictionary *headers;
 @property (nonatomic) NSDictionary *params;
 @property (nonatomic) NSDictionary *body;
 
@@ -36,6 +37,7 @@
 + (FNAPIRequest *)method:(NSString *)method
                     base:(NSString *)base
                     path:(NSString *)path
+                 headers:(NSDictionary * _Nullable)headers
                   params:(NSDictionary * _Nullable)params
                     body:(NSDictionary * _Nullable)body;
 

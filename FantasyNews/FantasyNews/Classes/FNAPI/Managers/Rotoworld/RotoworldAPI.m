@@ -25,7 +25,7 @@
 - (void)players:(void(^)(NSArray<RotoworldPlayer *> *players))completion {
     NSString *path = [self withToken: @"GetPlayers?sport=NBA"];
     [self performRequest: [FNAPIRequest method:GET base:BASE_URL path:path]
-              completion:^(NSDictionary *response, NSError *error) {
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
                       NSLog(@"%@",error);
                       completion(nil);
@@ -47,7 +47,7 @@
 - (void)teams:(void(^)(NSArray<RotoworldTeam *> *teams))completion {
     NSString *path = [self withToken: @"GetTeamInfo?sport=NBA"];
     [self performRequest: [FNAPIRequest method:GET base:BASE_URL path:path]
-              completion:^(NSDictionary *response, NSError *error) {
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
                       NSLog(@"%@",error);
                       completion(nil);
@@ -70,7 +70,7 @@
                        completion:(void (^)(NSArray<RotoworldNews *> *))completion {
     NSString *path = [self withToken: [NSString stringWithFormat:@"GetNews?articleid=%ld&sport=NBA", articleID]];
     [self performRequest: [FNAPIRequest method:GET base:BASE_URL path:path]
-              completion:^(NSDictionary *response, NSError *error) {
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
                       NSLog(@"%@",error);
                       completion(nil);
@@ -93,7 +93,7 @@
              completion:(void(^)(NSArray<RotoworldNews *> *articles))completion {
     NSString *path = [self withToken: [NSString stringWithFormat:@"GetPlayersNews?playerid=%ld&sport=NBA", playerID]];
     [self performRequest: [FNAPIRequest method:GET base:BASE_URL path:path]
-              completion:^(NSDictionary *response, NSError *error) {
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
                       NSLog(@"%@",error);
                       completion(nil);
@@ -115,7 +115,7 @@
 - (void)newsHeadlines:(void(^)(NSArray<RotoworldNews *> *articles))completion {
     NSString *path = [self withToken: @"GetHeadlines?sport=NBA"];
     [self performRequest: [FNAPIRequest method:GET base:BASE_URL path:path]
-              completion:^(NSDictionary *response, NSError *error) {
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
                       NSLog(@"%@",error);
                       completion(nil);
@@ -137,7 +137,7 @@
 - (void)imageBaseURLs:(void(^)(NSString *teamURL, NSString *playerURL))completion {
     NSString *path = [self withToken: @"GetImageUrls?"];
     [self performRequest: [FNAPIRequest method:GET base:BASE_URL path:path]
-              completion:^(NSDictionary *response, NSError *error) {
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
                       NSLog(@"%@",error);
                       completion(nil, nil);

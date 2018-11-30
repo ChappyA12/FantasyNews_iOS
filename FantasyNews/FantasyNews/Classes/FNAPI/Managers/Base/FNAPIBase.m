@@ -11,7 +11,7 @@
 @implementation FNAPIBase
 
 - (void)performRequest:(FNAPIRequest *)request
-            completion:(void (^)(NSDictionary *response, NSError *error))completion {
+            completion:(void (^)(NSDictionary *response, NSDictionary *headers, NSError *error))completion {
     if (request.params) {
         request.path = [request.path stringByAppendingString:@"?"];
         for (NSString *key in request.params.allKeys) {
@@ -27,13 +27,13 @@
     requestObj.HTTPMethod = request.method;
     if (request.body) requestObj.HTTPBody = [NSJSONSerialization dataWithJSONObject:request.body
                                                                             options:0 error:nil];
-    [self addMetadataToRequest:requestObj];
+    [self addHeaders:request.headers toRequest:requestObj];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task =
         [session dataTaskWithRequest:requestObj
                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                        if (error) {
-                           completion(nil, error);
+                           completion(nil, nil, error);
                            return;
                        }
                        NSInteger statusCode = 200;
@@ -41,7 +41,9 @@
                            statusCode = [(NSHTTPURLResponse *)response statusCode];
                        if (statusCode < 200 || statusCode > 299) {
                            NSString *err = [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding];
-                           completion(nil, [NSError errorWithDomain:NSURLErrorDomain code:statusCode userInfo:@{@"response": err}]);
+                           completion(nil, nil, [NSError errorWithDomain:NSURLErrorDomain
+                                                                    code:statusCode
+                                                                userInfo:@{@"response": err}]);
                            return;
                        }
                        NSError *jsonError;
@@ -49,18 +51,25 @@
                                                                                     options:0
                                                                                       error:&jsonError];
                        if (jsonError) {
-                           NSLog(@"JSON Error Output:\n%@", [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding]);
-                           completion(nil, error);
+                           NSLog(@"JSON Error Output:\n%@", [[NSString alloc] initWithData:data
+                                                                                  encoding:NSISOLatin1StringEncoding]);
+                           completion(nil, nil, error);
                            return;
                        }
-                       completion(jsonResponse, nil);
+                       if ([response respondsToSelector:@selector(allHeaderFields)])
+                           completion(jsonResponse, ((NSHTTPURLResponse *)response).allHeaderFields, nil);
+                       completion(jsonResponse, nil, nil);
                    }];
     [task resume];
 }
 
 #pragma mark - private helper methods
 
-- (void)addMetadataToRequest:(NSMutableURLRequest *)request {
+- (void)addHeaders:(NSDictionary *)headers toRequest:(NSMutableURLRequest *)request {
+    if (headers) {
+        for (NSString *key in headers.allKeys)
+            [request setValue:headers[key] forHTTPHeaderField:key];
+    }
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 }
 

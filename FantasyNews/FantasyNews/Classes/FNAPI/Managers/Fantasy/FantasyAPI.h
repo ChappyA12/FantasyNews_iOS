@@ -13,4 +13,14 @@
 
 + (FantasyAPI *)sharedInstance;
 
+- (void)apiKey:(void(^)(NSString *apiKey))completion;
+
+- (void)logInWithAPIKey:(NSString *)apiKey
+               username:(NSString *)username
+               password:(NSString *)password
+             completion:(void(^)(NSString *userID))completion;
+
+- (void)fantasyInfoForUserID:(NSString *)userID
+                  completion:(void(^)(NSObject *fantasyInfo))completion;
+
 @end

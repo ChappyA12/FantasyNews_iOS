@@ -12,6 +12,6 @@
 @interface FNAPIBase : NSObject
 
 - (void)performRequest:(FNAPIRequest *)request
-            completion:(void (^)(NSDictionary *response, NSError *error))completion;
+            completion:(void (^)(NSDictionary *response, NSDictionary *headers, NSError *error))completion;
 
 @end
