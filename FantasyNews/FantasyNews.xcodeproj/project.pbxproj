@@ -24,6 +24,7 @@
 		5083AD1821B080BA006463A9 /* LeftSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5083AD1721B080BA006463A9 /* LeftSideMenuViewController.m */; };
 		5083AD1E21B08183006463A9 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5083AD1C21B08183006463A9 /* SideMenuTableViewCell.m */; };
 		5083AD1F21B08183006463A9 /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5083AD1D21B08183006463A9 /* SideMenuTableViewCell.xib */; };
+		5083AD2721B08E4E006463A9 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5083AD2521B08E4D006463A9 /* PlayerViewController.m */; };
 		50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780921AF66CF00F2DB59 /* AppDelegate.m */; };
 		50A1780D21AF66CF00F2DB59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780C21AF66CF00F2DB59 /* MainViewController.m */; };
 		50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1780E21AF66CF00F2DB59 /* Main.storyboard */; };
@@ -70,6 +71,8 @@
 		5083AD1B21B08183006463A9 /* SideMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewCell.h; sourceTree = "<group>"; };
 		5083AD1C21B08183006463A9 /* SideMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableViewCell.m; sourceTree = "<group>"; };
 		5083AD1D21B08183006463A9 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
+		5083AD2521B08E4D006463A9 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		5083AD2621B08E4E006463A9 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		50A1780521AF66CF00F2DB59 /* FantasyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A1780821AF66CF00F2DB59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A1780921AF66CF00F2DB59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				5083AD1A21B080C7006463A9 /* Main */,
+				5083AD2421B08E26006463A9 /* Player */,
 				5083AD1921B080BE006463A9 /* Left Side Menu */,
 			);
 			path = "View Controllers";
@@ -326,6 +330,15 @@
 			path = "Side Menu TVC";
 			sourceTree = "<group>";
 		};
+		5083AD2421B08E26006463A9 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5083AD2621B08E4E006463A9 /* PlayerViewController.h */,
+				5083AD2521B08E4D006463A9 /* PlayerViewController.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
 		50A177FC21AF66CF00F2DB59 = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +516,7 @@
 				5004BD1B21AFAF4D00C2D43F /* JSONValueTransformer+UIColor.m in Sources */,
 				5004BD1121AFA7C700C2D43F /* RotoworldPlayer.m in Sources */,
 				5004BD2921AFD02800C2D43F /* UIColor+FNColors.m in Sources */,
+				5083AD2721B08E4E006463A9 /* PlayerViewController.m in Sources */,
 				5083AD1821B080BA006463A9 /* LeftSideMenuViewController.m in Sources */,
 				5083AD1E21B08183006463A9 /* SideMenuTableViewCell.m in Sources */,
 				50A1781B21AF66D000F2DB59 /* main.m in Sources */,

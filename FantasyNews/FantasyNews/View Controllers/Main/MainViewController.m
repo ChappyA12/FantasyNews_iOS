@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "NewsOverviewTableViewCell.h"
+#import "PlayerViewController.h"
 #import "FNAPI.h"
 
 @interface MainViewController ()
@@ -65,6 +66,13 @@
     }
     cell.news = self.news[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PlayerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"player"];
+    [self.navigationController pushViewController:vc animated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)setUpTableView {

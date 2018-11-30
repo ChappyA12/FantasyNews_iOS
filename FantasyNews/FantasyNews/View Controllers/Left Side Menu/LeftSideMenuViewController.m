@@ -56,16 +56,16 @@
             ((MainViewController *)vc).mode = MODE_HEADLINES;
             break;
         case 2:
-            vc = [UIViewController new];
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
             break;
         case 3:
-            vc = [UIViewController new];
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
             break;
         case 4:
-            vc = [UIViewController new];
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"settings"];
             break;
         case 5:
-            vc = [UIViewController new];
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"about"];
             break;
         default:
             break;

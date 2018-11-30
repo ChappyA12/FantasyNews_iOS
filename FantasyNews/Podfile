@@ -13,4 +13,5 @@ target 'FantasyNews' do
   pod 'Crashlytics'
   pod 'Amplitude-iOS'
   pod 'LGSideMenuController'
+  pod 'BLKFlexibleHeightBar'
 end
