@@ -10,13 +10,14 @@
 
 #import "PlayerViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SafariServices/SafariServices.h>
 #import "BLKFlexibleHeightBar.h"
 #import "BLKDelegateSplitter.h"
 #import "PlayerNavBarBehaviorDefiner.h"
 #import "NewsDetailTableViewCell.h"
 #import "FNAPI.h"
 
-@interface PlayerViewController ()
+@interface PlayerViewController () <NewsDetailTableViewCellDelegate, SFSafariViewControllerDelegate>
 @property (nonatomic) NSMutableArray <RotoworldNews *> *allNews;
 @property (nonatomic) NSInteger rotoworldPlayerID;
 @property (nonatomic) CGFloat statusBarHeight;
@@ -78,6 +79,7 @@
     if (cell == nil) {
         cell = [[NSBundle mainBundle] loadNibNamed:@"NewsDetailTableViewCell" owner:self options:nil].firstObject;
     }
+    cell.delegate = self;
     cell.news = self.allNews[indexPath.row];
     return cell;
 }
@@ -87,6 +89,20 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.tableView.scrollIndicatorInsets =
         UIEdgeInsetsMake(MAX(self.navBar.minimumBarHeight, -scrollView.contentOffset.y - self.statusBarHeight), 0, 0, 0);
+}
+
+#pragma mark - newsDetailTVC
+
+- (void)newsDetailTableViewCell:(NewsDetailTableViewCell *)cell tappedURL:(NSURL *)url {
+    SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:url];
+    svc.delegate = self;
+    [self presentViewController:svc animated:YES completion:nil];
+}
+
+#pragma mark - safariVC
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    
 }
 
 - (void)setUpNavBar {

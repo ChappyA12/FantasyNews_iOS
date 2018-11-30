@@ -13,6 +13,7 @@
 @interface NewsDetailTableViewCell ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 @end
 
 @implementation NewsDetailTableViewCell
@@ -32,6 +33,12 @@
     [boldNews appendAttributedString:regAnalysis];
     self.textView.attributedText = boldNews;
     self.dateLabel.text = [TimeAgo extendedDate:news.date];
+    self.sourceLabel.text = (news.sourceTitle) ? news.sourceTitle : @"";
+}
+
+- (IBAction)sourceTapped:(UIButton *)sender {
+    if (self.news.sourceLink)
+        [self.delegate newsDetailTableViewCell:self tappedURL:[NSURL URLWithString:self.news.sourceLink]];
 }
 
 @end

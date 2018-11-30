@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class NewsDetailTableViewCell;
+
+@protocol NewsDetailTableViewCellDelegate <NSObject>
+- (void)newsDetailTableViewCell:(NewsDetailTableViewCell *)cell tappedURL:(NSURL *)url;
+@end
+
 @class RotoworldNews;
 
 @interface NewsDetailTableViewCell : UITableViewCell
+
+@property (nonatomic) id<NewsDetailTableViewCellDelegate> delegate;
 
 @property (nonatomic) RotoworldNews *news;
 
