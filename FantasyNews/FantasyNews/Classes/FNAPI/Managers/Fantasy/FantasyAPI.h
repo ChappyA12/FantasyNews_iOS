@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FNAPIBase.h"
+#import "FantasyUser.h"
 
 @interface FantasyAPI : FNAPIBase
 
@@ -20,7 +21,7 @@
                password:(NSString *)password
              completion:(void(^)(NSString *userID))completion;
 
-- (void)fantasyInfoForUserID:(NSString *)userID
-                  completion:(void(^)(NSObject *fantasyInfo))completion;
+- (void)fantasyUserForUserID:(NSString *)userID
+                  completion:(void(^)(FantasyUser *user))completion;
 
 @end

@@ -42,7 +42,7 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [FNAPI.fantasy apiKey:^(NSString *apiKey) {
         [FNAPI.fantasy logInWithAPIKey:apiKey username:@"x" password:@"x" completion:^(NSString *userID) {
-            [FNAPI.fantasy fantasyInfoForUserID:userID completion:^(NSObject *fantasyInfo) {
+            [FNAPI.fantasy fantasyUserForUserID:userID completion:^(FantasyUser *user) {
                 
             }];
         }];

@@ -57,8 +57,8 @@
                            return;
                        }
                        if ([response respondsToSelector:@selector(allHeaderFields)])
-                           completion(jsonResponse, ((NSHTTPURLResponse *)response).allHeaderFields, nil);
-                       completion(jsonResponse, nil, nil);
+                            completion(jsonResponse, ((NSHTTPURLResponse *)response).allHeaderFields, nil);
+                       else completion(jsonResponse, nil, nil);
                    }];
     [task resume];
 }

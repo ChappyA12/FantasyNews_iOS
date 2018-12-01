@@ -35,6 +35,7 @@
 		50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781421AF66D000F2DB59 /* Assets.xcassets */; };
 		50A1781821AF66D000F2DB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */; };
 		50A1781B21AF66D000F2DB59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1781A21AF66D000F2DB59 /* main.m */; };
+		50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEC21B3277A009B4749 /* FantasyUser.m */; };
 		A83260C8776A909FC5D8425C /* libPods-FantasyNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		50A1781721AF66D000F2DB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50A1781921AF66D000F2DB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A1781A21AF66D000F2DB59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50DCEEEB21B3277A009B4749 /* FantasyUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyUser.h; sourceTree = "<group>"; };
+		50DCEEEC21B3277A009B4749 /* FantasyUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyUser.m; sourceTree = "<group>"; };
 		FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FantasyNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				5004BCFF21AF8B4800C2D43F /* Rotoworld */,
+				50DCEEEA21B32741009B4749 /* Fantasy */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -399,6 +403,15 @@
 			path = FantasyNews;
 			sourceTree = "<group>";
 		};
+		50DCEEEA21B32741009B4749 /* Fantasy */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEEB21B3277A009B4749 /* FantasyUser.h */,
+				50DCEEEC21B3277A009B4749 /* FantasyUser.m */,
+			);
+			path = Fantasy;
+			sourceTree = "<group>";
+		};
 		DBBCF10145B7DECA7E45C46D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +554,7 @@
 				5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */,
 				5004BCF421AF88AE00C2D43F /* FNAPI.m in Sources */,
 				5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */,
+				50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */,
 				5004BD1521AFAD3A00C2D43F /* RotoworldTeam.m in Sources */,
 				50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */,
 				5004BD1B21AFAF4D00C2D43F /* JSONValueTransformer+UIColor.m in Sources */,

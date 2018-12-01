@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FantasyNews/Classes/FNAPI/Managers/Base/FNAPIBase.m"
-            timestampString = "565312074.573487"
+            filePath = "FantasyNews/View Controllers/Player/PlayerViewController.m"
+            timestampString = "565394794.11972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-performRequest:completion:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

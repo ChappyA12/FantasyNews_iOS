@@ -42,6 +42,11 @@
                username:(NSString *)username
                password:(NSString *)password
              completion:(void(^)(NSString *userID))completion {
+    if (!apiKey) {
+        NSLog(@"logInWithAPIKey passed nil for apiKey");
+        completion(nil);
+        return;
+    }
     [self performRequest: [FNAPIRequest method:POST base:DISNEY_BASE_URL path:@"guest/login"
                                        headers:@{@"Authorization": [NSString stringWithFormat:@"APIKEY %@", apiKey]}
                                         params:nil body:@{@"loginValue": username, @"password": password}]
@@ -66,8 +71,13 @@
               }];
 }
 
-- (void)fantasyInfoForUserID:(NSString *)userID
-                  completion:(void(^)(NSObject *fantasyInfo))completion {
+- (void)fantasyUserForUserID:(NSString *)userID
+                  completion:(void(^)(FantasyUser *user))completion {
+    if (!userID) {
+        NSLog(@"fantastUserForUserID passed nil for userID");
+        completion(nil);
+        return;
+    }
     NSString *mod = [[userID stringByReplacingOccurrencesOfString:@"{" withString:@"%7B"]
                              stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
     NSString *path = [NSString stringWithFormat:@"fans/%@", mod];
@@ -79,7 +89,19 @@
                       completion(nil);
                       return;
                   }
-                  completion(response);
+                  if (!response || ![response objectForKey:@"preferences"]) {
+                      NSLog(@"Bad fantasy user data: no preferences");
+                      completion(nil);
+                      return;
+                  }
+                  NSError *JSONError;
+                  FantasyUser *user = [[FantasyUser alloc] initWithDictionary:response error:&JSONError];
+                  if (JSONError) {
+                      NSLog(@"%@", JSONError);
+                      completion(nil);
+                      return;
+                  }
+                  completion(user);
               }];
 }
 
