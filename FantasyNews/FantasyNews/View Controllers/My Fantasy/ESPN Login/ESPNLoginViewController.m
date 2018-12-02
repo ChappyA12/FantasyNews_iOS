@@ -18,9 +18,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 @property (nonatomic) BOOL needsAnimation;
 @property (nonatomic) BOOL firstLoad;
+
+@property (nonatomic) NSString *apiKey;
 
 @end
 
@@ -31,6 +35,9 @@
     self.needsAnimation = YES;
     self.firstLoad = YES;
     self.scrollView.delegate = self;
+    self.errorLabel.hidden = true;
+    self.usernameField.delegate = self;
+    self.passwordField.delegate = self;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -39,6 +46,15 @@
         self.backgroundView.alpha = 0.0;
         self.firstLoad = NO;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [FNAPI.fantasy apiKey:^(NSString *apiKey) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.apiKey = apiKey;
+        });
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,17 +68,44 @@
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
-    [self animateOut];
+    [self logIn];
 }
 
-- (void)login {
-    [FNAPI.fantasy apiKey:^(NSString *apiKey) {
-        [FNAPI.fantasy logInWithAPIKey:apiKey username:@"x" password:@"x" completion:^(NSString *userID) {
-            [FNAPI.fantasy fantasyUserForUserID:userID completion:^(FantasyUser *user) {
-                
-            }];
-        }];
-    }];
+- (void)logIn {
+    self.errorLabel.hidden = true;
+    if (!self.apiKey) {
+        self.errorLabel.text = @"Trouble connecting with ESPN. Please try again later.";
+        self.errorLabel.hidden = false;
+        return;
+    }
+    [self.loadingIndicator startAnimating];
+    self.loginButton.enabled = false;
+    [FNAPI.fantasy logInWithAPIKey:self.apiKey
+                          username:self.usernameField.text
+                          password:self.passwordField.text
+                        completion:^(NSString *userID) {
+        [FNAPI.fantasy fantasyUserForUserID:userID
+                                 completion:^(FantasyUser *user) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.loadingIndicator stopAnimating];
+                 self.loginButton.enabled = true;
+             });
+         }];
+     }];
+}
+
+#pragma mark - textField handling
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.usernameField) {
+        [textField resignFirstResponder];
+        [self.passwordField becomeFirstResponder];
+    }
+    else {
+        [textField resignFirstResponder];
+        [self logIn];
+    }
+    return YES;
 }
 
 #pragma mark - scrollView delegate

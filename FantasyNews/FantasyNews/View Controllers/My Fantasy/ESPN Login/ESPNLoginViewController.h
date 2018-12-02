@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ESPNLoginViewController : UIViewController <UIScrollViewDelegate>
+@interface ESPNLoginViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic) CGPoint originPoint;
 
