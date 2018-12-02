@@ -91,6 +91,7 @@
 - (void)setUpTableView {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.extendedLayoutIncludesOpaqueBars = YES;
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchBar.placeholder = @"Search Players";
     self.searchController.searchBar.delegate = self;
@@ -100,7 +101,6 @@
     [self.refreshControl addTarget:self action:@selector(refreshNews)
                   forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = self.refreshControl;
-    self.extendedLayoutIncludesOpaqueBars = YES;
 }
 
 @end

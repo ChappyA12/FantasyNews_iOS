@@ -10,6 +10,13 @@
 #import "FNAPIBase.h"
 #import "FantasyUser.h"
 
+typedef enum LoginErrorType : NSUInteger {
+    LoginErrorTypeInvalidLogin,
+    LoginErrorTypeNoAPIKey,
+    LoginErrorTypeNoSWID,
+    LoginErrorTypeOther
+} LoginErrorType;
+
 @interface FantasyAPI : FNAPIBase
 
 + (FantasyAPI *)sharedInstance;
@@ -19,7 +26,7 @@
 - (void)logInWithAPIKey:(NSString *)apiKey
                username:(NSString *)username
                password:(NSString *)password
-             completion:(void(^)(NSString *userID))completion;
+             completion:(void(^)(NSString *userID, NSError *error))completion;
 
 - (void)fantasyUserForUserID:(NSString *)userID
                   completion:(void(^)(FantasyUser *user))completion;

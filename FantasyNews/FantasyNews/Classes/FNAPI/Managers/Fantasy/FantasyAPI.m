@@ -8,6 +8,7 @@
 
 #define DISNEY_BASE_URL @"https://registerdisney.go.com/jgc/v5/client/ESPN-FANTASYLM-PROD/"
 #define ESPN_BASE_URL @"http://fan.api.espn.com/apis/v2/"
+#define ERROR_DOMAIN @"com.chappyasel.fantasynews"
 
 #import "FantasyAPI.h"
 
@@ -41,10 +42,10 @@
 - (void)logInWithAPIKey:(NSString *)apiKey
                username:(NSString *)username
                password:(NSString *)password
-             completion:(void(^)(NSString *userID))completion {
+             completion:(void(^)(NSString *userID, NSError *error))completion {
     if (!apiKey) {
         NSLog(@"logInWithAPIKey passed nil for apiKey");
-        completion(nil);
+        completion(nil, [NSError errorWithDomain:ERROR_DOMAIN code:LoginErrorTypeNoAPIKey userInfo:nil]);
         return;
     }
     [self performRequest: [FNAPIRequest method:POST base:DISNEY_BASE_URL path:@"guest/login"
@@ -54,20 +55,20 @@
                   if (error) {
                       if ([error.userInfo[@"response"] containsString:@"AUTHENTICATION_FAILED"]) {
                           NSLog(@"Bad login info: %@",error);
-                          completion(nil);
+                          completion(nil, [NSError errorWithDomain:ERROR_DOMAIN code:LoginErrorTypeInvalidLogin userInfo:nil]);
                           return;
                       }
                       NSLog(@"%@",error);
-                      completion(nil);
+                      completion(nil, [NSError errorWithDomain:ERROR_DOMAIN code:LoginErrorTypeOther userInfo:nil]);
                       return;
                   }
                   if (!response || ![response objectForKey:@"data"] || ![response[@"data"] objectForKey:@"token"] ||
                       ![response[@"data"][@"token"] objectForKey:@"swid"]) {
                       NSLog(@"Bad login data: no data.token.swid");
-                      completion(nil);
+                      completion(nil, [NSError errorWithDomain:ERROR_DOMAIN code:LoginErrorTypeNoSWID userInfo:nil]);
                       return;
                   }
-                  completion(response[@"data"][@"token"][@"swid"]);
+                  completion(response[@"data"][@"token"][@"swid"], nil);
               }];
 }
 

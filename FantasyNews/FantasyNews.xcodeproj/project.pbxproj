@@ -38,6 +38,10 @@
 		50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEC21B3277A009B4749 /* FantasyUser.m */; };
 		50DCEEF021B37F79009B4749 /* FantasyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEF21B37F79009B4749 /* FantasyViewController.m */; };
 		50DCEEF321B37F96009B4749 /* ESPNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEF221B37F96009B4749 /* ESPNLoginViewController.m */; };
+		50DCEEF921B3CFD4009B4749 /* FNButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEF821B3CFD4009B4749 /* FNButton.m */; };
+		50DCEEFD21B3D92D009B4749 /* SlidingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEFB21B3D92D009B4749 /* SlidingView.m */; };
+		50DCEF0121B3D940009B4749 /* FantasySlidingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50DCEEFF21B3D93F009B4749 /* FantasySlidingView.xib */; };
+		50DCEF0221B3D940009B4749 /* FantasySlidingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEF0021B3D93F009B4749 /* FantasySlidingView.m */; };
 		A83260C8776A909FC5D8425C /* libPods-FantasyNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +105,13 @@
 		50DCEEEF21B37F79009B4749 /* FantasyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyViewController.m; sourceTree = "<group>"; };
 		50DCEEF121B37F96009B4749 /* ESPNLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESPNLoginViewController.h; sourceTree = "<group>"; };
 		50DCEEF221B37F96009B4749 /* ESPNLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESPNLoginViewController.m; sourceTree = "<group>"; };
+		50DCEEF721B3CFD4009B4749 /* FNButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNButton.h; sourceTree = "<group>"; };
+		50DCEEF821B3CFD4009B4749 /* FNButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FNButton.m; sourceTree = "<group>"; };
+		50DCEEFB21B3D92D009B4749 /* SlidingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingView.m; sourceTree = "<group>"; };
+		50DCEEFC21B3D92D009B4749 /* SlidingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingView.h; sourceTree = "<group>"; };
+		50DCEEFE21B3D93F009B4749 /* FantasySlidingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FantasySlidingView.h; sourceTree = "<group>"; };
+		50DCEEFF21B3D93F009B4749 /* FantasySlidingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FantasySlidingView.xib; sourceTree = "<group>"; };
+		50DCEF0021B3D93F009B4749 /* FantasySlidingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FantasySlidingView.m; sourceTree = "<group>"; };
 		FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FantasyNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -297,6 +308,8 @@
 			children = (
 				5004BD2A21AFD02D00C2D43F /* FNColors */,
 				5004BD2621AFC48B00C2D43F /* TimeAgo */,
+				50DCEEF621B3CFBB009B4749 /* FNButton */,
+				50DCEF0321B3DABA009B4749 /* Sliding View */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -433,9 +446,38 @@
 			children = (
 				50DCEEEE21B37F79009B4749 /* FantasyViewController.h */,
 				50DCEEEF21B37F79009B4749 /* FantasyViewController.m */,
+				50DCEF0421B3DB18009B4749 /* Fantasy Sliding View */,
 				50DCEEF421B37F9A009B4749 /* ESPN Login */,
 			);
 			path = "My Fantasy";
+			sourceTree = "<group>";
+		};
+		50DCEEF621B3CFBB009B4749 /* FNButton */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEF721B3CFD4009B4749 /* FNButton.h */,
+				50DCEEF821B3CFD4009B4749 /* FNButton.m */,
+			);
+			path = FNButton;
+			sourceTree = "<group>";
+		};
+		50DCEF0321B3DABA009B4749 /* Sliding View */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEFC21B3D92D009B4749 /* SlidingView.h */,
+				50DCEEFB21B3D92D009B4749 /* SlidingView.m */,
+			);
+			path = "Sliding View";
+			sourceTree = "<group>";
+		};
+		50DCEF0421B3DB18009B4749 /* Fantasy Sliding View */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEFE21B3D93F009B4749 /* FantasySlidingView.h */,
+				50DCEF0021B3D93F009B4749 /* FantasySlidingView.m */,
+				50DCEEFF21B3D93F009B4749 /* FantasySlidingView.xib */,
+			);
+			path = "Fantasy Sliding View";
 			sourceTree = "<group>";
 		};
 		DBBCF10145B7DECA7E45C46D /* Frameworks */ = {
@@ -479,6 +521,11 @@
 				TargetAttributes = {
 					50A1780421AF66CF00F2DB59 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -510,6 +557,7 @@
 				5004BD2021AFB99B00C2D43F /* NewsOverviewTableViewCell.xib in Resources */,
 				50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */,
 				50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */,
+				50DCEF0121B3D940009B4749 /* FantasySlidingView.xib in Resources */,
 				5083AD2C21B0E12D006463A9 /* NewsDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +628,7 @@
 				5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */,
 				5004BCF421AF88AE00C2D43F /* FNAPI.m in Sources */,
 				5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */,
+				50DCEF0221B3D940009B4749 /* FantasySlidingView.m in Sources */,
 				50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */,
 				5004BD1521AFAD3A00C2D43F /* RotoworldTeam.m in Sources */,
 				50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */,
@@ -599,8 +648,10 @@
 				50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */,
 				5004BD0621AF8B9A00C2D43F /* FNAPIRequest.m in Sources */,
 				5004BCF721AF88D600C2D43F /* RotoworldAPI.m in Sources */,
+				50DCEEFD21B3D92D009B4749 /* SlidingView.m in Sources */,
 				5004BD0921AF95D100C2D43F /* RotoworldNews.m in Sources */,
 				5004BD1F21AFB99B00C2D43F /* NewsOverviewTableViewCell.m in Sources */,
+				50DCEEF921B3CFD4009B4749 /* FNButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

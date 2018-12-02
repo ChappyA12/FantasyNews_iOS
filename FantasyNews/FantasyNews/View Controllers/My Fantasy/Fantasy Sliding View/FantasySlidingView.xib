@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomNavBar"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FantasySlidingView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHl-nX-7sR">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucU-cJ-oji">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="RRR-Q1-c08"/>
+                                <constraint firstAttribute="height" constant="400" id="cT9-6B-WjJ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rs-82-fSF">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="5Tw-j2-6Fd"/>
+                                <constraint firstAttribute="height" constant="80" id="HZF-NR-u4d"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ESPNFantasy" translatesAutoresizingMaskIntoConstraints="NO" id="RVN-qd-gWL">
+                            <rect key="frame" x="187" y="0.0" width="40" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="5pL-HN-OKi"/>
+                                <constraint firstAttribute="height" constant="15" id="Mxi-yb-KoA"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="RVN-qd-gWL" firstAttribute="top" secondItem="nHl-nX-7sR" secondAttribute="top" id="BCv-cx-uFf"/>
+                        <constraint firstItem="1rs-82-fSF" firstAttribute="width" secondItem="nHl-nX-7sR" secondAttribute="width" priority="999" id="Sae-LQ-z8o"/>
+                        <constraint firstItem="RVN-qd-gWL" firstAttribute="centerX" secondItem="nHl-nX-7sR" secondAttribute="centerX" id="So6-BV-LwK"/>
+                        <constraint firstItem="1rs-82-fSF" firstAttribute="top" secondItem="nHl-nX-7sR" secondAttribute="top" id="d2C-bT-kqo"/>
+                        <constraint firstItem="ucU-cJ-oji" firstAttribute="top" secondItem="nHl-nX-7sR" secondAttribute="top" id="eGa-8V-T2h"/>
+                        <constraint firstItem="ucU-cJ-oji" firstAttribute="centerX" secondItem="nHl-nX-7sR" secondAttribute="centerX" id="jgz-DP-cbT"/>
+                        <constraint firstItem="ucU-cJ-oji" firstAttribute="width" secondItem="nHl-nX-7sR" secondAttribute="width" priority="999" id="nhU-IV-Di2"/>
+                        <constraint firstItem="1rs-82-fSF" firstAttribute="centerX" secondItem="nHl-nX-7sR" secondAttribute="centerX" id="wbW-ta-uei"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="5FY-pR-yBr" appends="YES" id="KFc-bX-Ucc"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.30196078430000001" green="0.53725490200000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nHl-nX-7sR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="29Q-Kk-IPk"/>
+                <constraint firstItem="nHl-nX-7sR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="9No-xL-j5N"/>
+                <constraint firstItem="nHl-nX-7sR" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="HLP-Y6-HHP"/>
+                <constraint firstItem="nHl-nX-7sR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hNo-VW-2Md"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomContainerView" destination="ucU-cJ-oji" id="nrA-Iu-aAh"/>
+                <outlet property="dragIncicatorView" destination="RVN-qd-gWL" id="dwF-oY-7HF"/>
+                <outlet property="topContainerView" destination="1rs-82-fSF" id="VIb-ne-0MR"/>
+            </connections>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="5FY-pR-yBr">
+            <connections>
+                <action selector="pan:" destination="iN0-l3-epB" id="ddX-vS-8DF"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="ESPNFantasy" width="500" height="500"/>
+    </resources>
+</document>

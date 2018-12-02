@@ -38,6 +38,7 @@
     self.errorLabel.hidden = true;
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
+    self.loginButton.enabled = false;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -83,12 +84,40 @@
     [FNAPI.fantasy logInWithAPIKey:self.apiKey
                           username:self.usernameField.text
                           password:self.passwordField.text
-                        completion:^(NSString *userID) {
+                        completion:^(NSString *userID, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self.loadingIndicator stopAnimating];
+                self.loginButton.enabled = true;
+                switch (error.code) {
+                    case LoginErrorTypeInvalidLogin:
+                        self.errorLabel.text = @"Your username or password is incorrect. Please try again.";
+                        break;
+                    case LoginErrorTypeNoAPIKey:
+                        self.errorLabel.text = @"Trouble connecting with ESPN. Please try again later.";
+                        break;
+                    case LoginErrorTypeNoSWID:
+                        self.errorLabel.text = @"We could not process your account. Please try again later.";
+                        break;
+                    default:
+                        self.errorLabel.text = @"Something went wrong. Please try again later.";
+                        break;
+                }
+                self.errorLabel.hidden = false;
+                return;
+            }
+        });
         [FNAPI.fantasy fantasyUserForUserID:userID
                                  completion:^(FantasyUser *user) {
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self.loadingIndicator stopAnimating];
                  self.loginButton.enabled = true;
+                 if (!user) {
+                     self.errorLabel.text = @"We could not process your account. Please try again later.";
+                     self.errorLabel.hidden = false;
+                     return;
+                 }
+                 [self animateOut];
              });
          }];
      }];
@@ -106,6 +135,15 @@
         [self logIn];
     }
     return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *new = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if ((self.usernameField.text.length > 0 && textField == self.passwordField && new.length > 0) ||
+        (self.passwordField.text.length > 0 && textField == self.usernameField && new.length > 0))
+         self.loginButton.enabled = true;
+    else self.loginButton.enabled = false;
+    return true;
 }
 
 #pragma mark - scrollView delegate
