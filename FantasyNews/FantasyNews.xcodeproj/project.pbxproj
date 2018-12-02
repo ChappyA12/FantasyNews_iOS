@@ -36,6 +36,8 @@
 		50A1781821AF66D000F2DB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */; };
 		50A1781B21AF66D000F2DB59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1781A21AF66D000F2DB59 /* main.m */; };
 		50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEC21B3277A009B4749 /* FantasyUser.m */; };
+		50DCEEF021B37F79009B4749 /* FantasyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEF21B37F79009B4749 /* FantasyViewController.m */; };
+		50DCEEF321B37F96009B4749 /* ESPNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEF221B37F96009B4749 /* ESPNLoginViewController.m */; };
 		A83260C8776A909FC5D8425C /* libPods-FantasyNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,10 @@
 		50A1781A21AF66D000F2DB59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50DCEEEB21B3277A009B4749 /* FantasyUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyUser.h; sourceTree = "<group>"; };
 		50DCEEEC21B3277A009B4749 /* FantasyUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyUser.m; sourceTree = "<group>"; };
+		50DCEEEE21B37F79009B4749 /* FantasyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyViewController.h; sourceTree = "<group>"; };
+		50DCEEEF21B37F79009B4749 /* FantasyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyViewController.m; sourceTree = "<group>"; };
+		50DCEEF121B37F96009B4749 /* ESPNLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESPNLoginViewController.h; sourceTree = "<group>"; };
+		50DCEEF221B37F96009B4749 /* ESPNLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESPNLoginViewController.m; sourceTree = "<group>"; };
 		FFA3E956C68B932B536A852B /* libPods-FantasyNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FantasyNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,7 @@
 			children = (
 				5083AD1A21B080C7006463A9 /* Main */,
 				5083AD2421B08E26006463A9 /* Player */,
+				50DCEEF521B37FA0009B4749 /* My Fantasy */,
 				5083AD1921B080BE006463A9 /* Left Side Menu */,
 			);
 			path = "View Controllers";
@@ -412,6 +419,25 @@
 			path = Fantasy;
 			sourceTree = "<group>";
 		};
+		50DCEEF421B37F9A009B4749 /* ESPN Login */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEF121B37F96009B4749 /* ESPNLoginViewController.h */,
+				50DCEEF221B37F96009B4749 /* ESPNLoginViewController.m */,
+			);
+			path = "ESPN Login";
+			sourceTree = "<group>";
+		};
+		50DCEEF521B37FA0009B4749 /* My Fantasy */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEEE21B37F79009B4749 /* FantasyViewController.h */,
+				50DCEEEF21B37F79009B4749 /* FantasyViewController.m */,
+				50DCEEF421B37F9A009B4749 /* ESPN Login */,
+			);
+			path = "My Fantasy";
+			sourceTree = "<group>";
+		};
 		DBBCF10145B7DECA7E45C46D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,8 +591,10 @@
 				5083AD2B21B0E12D006463A9 /* NewsDetailTableViewCell.m in Sources */,
 				5083AD1821B080BA006463A9 /* LeftSideMenuViewController.m in Sources */,
 				5083AD1E21B08183006463A9 /* SideMenuTableViewCell.m in Sources */,
+				50DCEEF021B37F79009B4749 /* FantasyViewController.m in Sources */,
 				50A1781B21AF66D000F2DB59 /* main.m in Sources */,
 				5004BD0D21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m in Sources */,
+				50DCEEF321B37F96009B4749 /* ESPNLoginViewController.m in Sources */,
 				5004BD2421AFC46500C2D43F /* TimeAgo.m in Sources */,
 				50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */,
 				5004BD0621AF8B9A00C2D43F /* FNAPIRequest.m in Sources */,

@@ -40,13 +40,6 @@
     self.tableView.separatorColor = UIColor.clearColor;
     self.tableView.estimatedRowHeight = 280;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    [FNAPI.fantasy apiKey:^(NSString *apiKey) {
-        [FNAPI.fantasy logInWithAPIKey:apiKey username:@"x" password:@"x" completion:^(NSString *userID) {
-            [FNAPI.fantasy fantasyUserForUserID:userID completion:^(FantasyUser *user) {
-                
-            }];
-        }];
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

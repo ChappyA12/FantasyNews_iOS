@@ -58,7 +58,7 @@
             vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
             break;
         case 3:
-            vc = [storyboard instantiateViewControllerWithIdentifier:@"main"];
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"fantasy"];
             break;
         case 4:
             vc = [storyboard instantiateViewControllerWithIdentifier:@"settings"];

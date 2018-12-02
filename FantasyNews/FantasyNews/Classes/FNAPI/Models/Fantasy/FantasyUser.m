@@ -13,11 +13,17 @@
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
         @"groupID": @"groupId",
-        @"name": @"groupName"
+        @"name": @"groupName",
+        @"size": @"groupSize",
+        @"wins": @"wins",
+        @"losses": @"losses",
+        @"ties": @"ties",
+        @"points": @"points",
+        @"rank": @"rank"
     }];
 }
 
-- (BOOL)isEqual:(FantasyTeam *)other {
+- (BOOL)isEqual:(FantasyGroup *)other {
     return self.groupID == other.groupID;
 }
 
@@ -32,31 +38,38 @@
         @"teamFullID": @"id",
         @"type": @"metaData.entry.abbrev",
         @"teamID": @"metaData.entry.entryId",
-        @"groupID": @"id",
+        @"leagueID": @"id",
         @"seasonID": @"metaData.entry.seasonId",
         @"firstName": @"metaData.entry.entryLocation",
         @"lastName": @"metaData.entry.entryNickname",
         @"abbrev": @"metaData.entry.entryMetadata.teamAbbrev",
         @"logoType": @"metaData.entry.logoType",
         @"logoURL": @"metaData.entry.logoUrl",
+        @"entryURL": @"metaData.entry.entryURL",
+        @"scoreboardURL": @"metaData.entry.scoreboardFeedURL",
         @"groups": @"metaData.entry.groups"
     }];
 }
 
 - (BOOL)isEqual:(FantasyTeam *)other {
-    return self.teamFullID == other.teamFullID;
+    return [self.teamFullID isEqualToString:other.teamFullID];
 }
 
-- (NSInteger)groupID {
-    if (self.groups[0])
-        return self.groups[0].groupID;
-    return -1;
+- (NSInteger)leagueID {
+    return ([self inLeague]) ? self.groups[0].groupID : -1;
 }
 
-- (NSString<Ignore> *)groupName {
-    if (self.groups[0])
-        return self.groups[0].name;
-    return nil;
+- (NSString<Ignore> *)leagueName {
+    return ([self inLeague]) ? self.groups[0].name : nil;
+}
+
+- (NSString<Ignore> *)record {
+    return ([self inLeague]) ?
+        [NSString stringWithFormat:@"%ld-%ld", self.groups[0].wins, self.groups[0].losses] : @"-";
+}
+
+- (BOOL)inLeague {
+    return self.groups[0];
 }
 
 @end
