@@ -17,6 +17,7 @@
 @property (nonatomic) UISearchController *searchController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSArray <RotoworldNews *> *news;
+@property (nonatomic) NSArray <RotoworldPlayer *> *players;
 @property (nonatomic) ZFModalTransitionAnimator *animator;
 @end
 
@@ -30,6 +31,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshNews];
+    [FNAPI.rotoworld players:^(NSArray<RotoworldPlayer *> *players) {
+        
+    }];
 }
 
 - (void)refreshNews {

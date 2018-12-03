@@ -16,7 +16,8 @@
 @property (nonatomic) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property FantasySlidingView *slidingView;
-@property (nonatomic) CGFloat lastContentOffset;
+@property (nonatomic) CGFloat deltaOffset;
+@property (nonatomic) CGFloat lastOffset;
 @end
 
 @implementation FantasyViewController
@@ -84,14 +85,17 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.lastContentOffset > scrollView.contentOffset.y ||
-        scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + self.slidingView.minHeight) {
+    CGFloat d = self.lastOffset - scrollView.contentOffset.y;
+    if ((d > 0 && self.deltaOffset < 0) || (d < 0 && self.deltaOffset > 0))
+        self.deltaOffset = 0;
+    self.deltaOffset += d;
+    if ((d > 0 && self.deltaOffset > 50) || scrollView.contentOffset.y + scrollView.frame.size.height >
+                                            scrollView.contentSize.height + self.slidingView.minHeight) {
         [self.slidingView collapse:NO animated:YES];
-    } else if (self.lastContentOffset < scrollView.contentOffset.y &&
-               scrollView.contentOffset.y > 0) {
+    } else if (d < 0 && self.deltaOffset < -50 && scrollView.contentOffset.y > 0) {
         [self.slidingView collapse:YES animated:YES];
     }
-    self.lastContentOffset = scrollView.contentOffset.y;
+    self.lastOffset = scrollView.contentOffset.y;
 }
 
 @end

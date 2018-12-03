@@ -33,7 +33,6 @@
     [super viewDidLoad];
     self.firstLoad = YES;
     self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    self.allNews = @[].mutableCopy;
     self.sideMenuController.leftViewEnabled = NO;
     self.tableView.dataSource = self;
     self.tableView.allowsSelection = NO;
@@ -56,14 +55,18 @@
 - (void)setNews:(RotoworldNews *)news {
     _news = news;
     self.rotoworldPlayerID = news.playerID;
-    [self.allNews addObject:news];
+    self.allNews = @[news].mutableCopy;
 }
 
 - (void)refreshNews {
     [FNAPI.rotoworld newsForPlayerID:self.rotoworldPlayerID completion:^(NSArray<RotoworldNews *> *articles) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.allNews = articles.mutableCopy;
-            [self.tableView reloadData];
+            if (articles) {
+                if (self.allNews.count > 0 && ![articles containsObject:self.allNews[0]])
+                    [self.allNews addObjectsFromArray:articles];
+                else self.allNews = articles.mutableCopy;
+                [self.tableView reloadData];
+            }
         });
     }];
 }
