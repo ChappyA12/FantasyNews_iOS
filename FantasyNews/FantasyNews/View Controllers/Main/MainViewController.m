@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "PlayerSearchTableViewController.h"
 #import "NewsOverviewTableViewCell.h"
 #import "ZFModalTransitionAnimator.h"
 #import "PlayerViewController.h"
@@ -17,7 +18,6 @@
 @property (nonatomic) UISearchController *searchController;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSArray <RotoworldNews *> *news;
-@property (nonatomic) NSArray <RotoworldPlayer *> *players;
 @property (nonatomic) ZFModalTransitionAnimator *animator;
 @end
 
@@ -31,9 +31,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshNews];
-    [FNAPI.rotoworld players:^(NSArray<RotoworldPlayer *> *players) {
-        
-    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateSearchButtons];
 }
 
 - (void)refreshNews {
@@ -96,15 +98,55 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.extendedLayoutIncludesOpaqueBars = YES;
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchBar.placeholder = @"Search Players";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PlayerSearchTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"playersearch"];
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:vc];
+    self.searchController.delegate = self;
     self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.tintColor = UIColor.FNBarColor;
+    [UITextField appearanceWhenContainedInInstancesOfClasses:@[UISearchBar.class]].defaultTextAttributes =
+        @{NSForegroundColorAttributeName: UIColor.darkGrayColor};
+    UITextField *field = [self.searchController.searchBar valueForKey:@"searchField"];
+    UIView *bg = field.subviews.firstObject;
+    bg.backgroundColor = UIColor.whiteColor;
+    bg.layer.cornerRadius = 10;
+    bg.clipsToBounds = true;
+    [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[UISearchBar.class]].tintColor = UIColor.whiteColor;
+    self.definesPresentationContext = YES;
     self.navigationItem.searchController = self.searchController;
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.tintColor = UIColor.FNWhiteTextColor;
-    [self.refreshControl addTarget:self action:@selector(refreshNews)
-                  forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(refreshNews) forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = self.refreshControl;
+}
+
+#pragma mark - searchController
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    NSLog(@"present");
+    
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"change");
+    [self updateSearchButtons];
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+    NSLog(@"dismiss");
+}
+
+- (void)updateSearchButtons {
+    UITextField *field = [self.searchController.searchBar valueForKey:@"searchField"];
+    field.attributedPlaceholder = [[NSAttributedString alloc]
+        initWithString:@"Search Players" attributes:@{NSForegroundColorAttributeName: UIColor.lightGrayColor}];
+    UIImageView *left = (UIImageView *)field.leftView;
+    left.image = [left.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    left.tintColor = UIColor.darkGrayColor;
+    UIButton *right = (UIButton *)[field valueForKey:@"clearButton"];
+    [right setImage:[right.currentImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+           forState:UIControlStateNormal];
+    right.tintColor = UIColor.lightGrayColor;
 }
 
 @end

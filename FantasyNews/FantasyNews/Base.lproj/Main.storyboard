@@ -134,6 +134,25 @@
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="-11.383928571428571"/>
         </scene>
+        <!--Player Search Table View Controller-->
+        <scene sceneID="R6u-qc-jNX">
+            <objects>
+                <tableViewController storyboardIdentifier="playersearch" id="Zhp-iL-xV9" customClass="PlayerSearchTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x35-PH-YXd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Zhp-iL-xV9" id="qKk-M7-wH0"/>
+                            <outlet property="delegate" destination="Zhp-iL-xV9" id="UOu-fc-tBF"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bEn-RM-YjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-465" y="-684"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="lkZ-wh-iwP">
             <objects>

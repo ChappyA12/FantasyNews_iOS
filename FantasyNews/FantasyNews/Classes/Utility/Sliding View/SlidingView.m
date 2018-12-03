@@ -10,7 +10,8 @@
 
 @interface SlidingView()
 @property (strong, nonatomic) IBOutlet UIImageView *dragIncicatorView;
-@property CGPoint offset;
+@property (nonatomic) CGPoint offset;
+@property (nonatomic) BOOL isPanning;
 @end
 
 @implementation SlidingView
@@ -38,6 +39,7 @@
 }
 
 - (void)collapse:(BOOL)collapse animated:(BOOL)animated {
+    if (self.isPanning) return;
     _collapsed = collapse;
     if (animated) {
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -66,7 +68,10 @@
 }
 
 - (IBAction)pan:(UIPanGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateBegan) self.offset = [sender locationInView:self];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.offset = [sender locationInView:self];
+        self.isPanning = YES;
+    }
     float currentOffset = self.superview.frame.size.height-[sender locationInView:self.superview].y;
     [UIView animateWithDuration:0.01 animations:^{
         [self setYPos:self.superview.frame.size.height-currentOffset-self.offset.y];
@@ -74,6 +79,7 @@
     if(sender.state == UIGestureRecognizerStateEnded) {
         float velocity = [sender velocityInView:self.superview].y;
         [self animateNavBarToBaselineWithVelocity:velocity];
+        self.isPanning = NO;
     }
 }
 

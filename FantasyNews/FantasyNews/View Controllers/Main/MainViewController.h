@@ -11,7 +11,7 @@
 #define MODE_RECENT @"Recent"
 #define MODE_HEADLINES @"Headlines"
 
-@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate>
 
 @property (nonatomic) NSString *mode;
 
