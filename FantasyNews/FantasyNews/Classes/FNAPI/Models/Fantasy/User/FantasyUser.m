@@ -8,23 +8,17 @@
 
 #import "FantasyUser.h"
 
-@implementation FantasyGroup
+@implementation FantasyUser
 
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
-        @"groupID": @"groupId",
-        @"name": @"groupName",
-        @"size": @"groupSize",
-        @"wins": @"wins",
-        @"losses": @"losses",
-        @"ties": @"ties",
-        @"points": @"points",
-        @"rank": @"rank"
+        @"userID": @"id",
+        @"teams": @"preferences"
     }];
 }
 
-- (BOOL)isEqual:(FantasyGroup *)other {
-    return self.groupID == other.groupID;
+- (BOOL)isEqual:(FantasyUser *)other {
+    return self.userID == other.userID;
 }
 
 @end
@@ -76,17 +70,22 @@
 
 
 
-@implementation FantasyUser
-
+@implementation FantasyGroup
 + (JSONKeyMapper *)keyMapper {
     return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{
-        @"userID": @"id",
-        @"teams": @"preferences"
+        @"groupID": @"groupId",
+        @"name": @"groupName",
+        @"size": @"groupSize",
+        @"wins": @"wins",
+        @"losses": @"losses",
+        @"ties": @"ties",
+        @"points": @"points",
+        @"rank": @"rank"
     }];
 }
 
-- (BOOL)isEqual:(FantasyUser *)other {
-    return self.userID == other.userID;
+- (BOOL)isEqual:(FantasyGroup *)other {
+    return self.groupID == other.groupID;
 }
 
 @end

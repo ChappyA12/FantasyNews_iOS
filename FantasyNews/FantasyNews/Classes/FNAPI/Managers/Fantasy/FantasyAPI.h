@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "FNAPIBase.h"
 #import "FantasyUser.h"
+#import "FantasyRoster.h"
 
 typedef enum LoginErrorType : NSUInteger {
     LoginErrorTypeInvalidLogin,
@@ -28,7 +29,16 @@ typedef enum LoginErrorType : NSUInteger {
                password:(NSString *)password
              completion:(void(^)(NSString *userID, NSError *error))completion;
 
-- (void)fantasyUserForUserID:(NSString *)userID
-                  completion:(void(^)(FantasyUser *user))completion;
+- (void)userForUserID:(NSString *)userID
+           completion:(void(^)(FantasyUser *user))completion;
+
+- (void)scoringPeriodIDForSeasonID:(NSInteger)seasonID
+                        completion:(void(^)(NSInteger scoringPeriodID))completion;
+
+- (void)rosterForSeasonID:(NSInteger)seasonID
+                 leagueID:(NSInteger)leagueID
+                   teamID:(NSInteger)teamID
+          scoringPeriodID:(NSInteger)scoringPeriodID
+               completion:(void(^)(FantasyRoster *roster))completion;
 
 @end

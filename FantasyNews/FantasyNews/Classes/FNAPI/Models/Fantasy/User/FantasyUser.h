@@ -9,23 +9,20 @@
 #import "JSONModel.h"
 
 @protocol FantasyGroup;
-@interface FantasyGroup : JSONModel
+@class FantasyGroup;
 
-@property (nonatomic) NSInteger groupID;
-@property (nonatomic) NSString *name;
-@property (nonatomic) NSInteger size;
+@protocol FantasyTeam;
+@class FantasyTeam;
 
-@property (nonatomic) NSInteger wins;
-@property (nonatomic) NSInteger losses;
-@property (nonatomic) NSInteger ties;
-@property (nonatomic) NSInteger points;
-@property (nonatomic) NSInteger rank;
+@interface FantasyUser : JSONModel
+
+@property (nonatomic) NSString *userID;
+@property (nonatomic) NSArray <FantasyTeam *> <FantasyTeam> *teams;
 
 @end
 
 
 
-@protocol FantasyTeam;
 @interface FantasyTeam : JSONModel
 
 @property (nonatomic) NSString *teamFullID;
@@ -54,9 +51,16 @@
 
 
 
-@interface FantasyUser : JSONModel
+@interface FantasyGroup : JSONModel
 
-@property (nonatomic) NSString *userID;
-@property (nonatomic) NSArray <FantasyTeam *> <FantasyTeam> *teams;
+@property (nonatomic) NSInteger groupID;
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSInteger size;
+
+@property (nonatomic) NSInteger wins;
+@property (nonatomic) NSInteger losses;
+@property (nonatomic) NSInteger ties;
+@property (nonatomic) NSInteger points;
+@property (nonatomic) NSInteger rank;
 
 @end

@@ -107,8 +107,7 @@
                 return;
             }
         });
-        [FNAPI.fantasy fantasyUserForUserID:userID
-                                 completion:^(FantasyUser *user) {
+        [FNAPI.fantasy userForUserID:userID completion:^(FantasyUser *user) {
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self.loadingIndicator stopAnimating];
                  self.loginButton.enabled = true;

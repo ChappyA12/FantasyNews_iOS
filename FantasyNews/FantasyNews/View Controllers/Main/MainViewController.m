@@ -31,6 +31,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshNews];
+    [FNAPI.fantasy scoringPeriodIDForSeasonID:2019 completion:^(NSInteger scoringPeriodID) {
+        
+    }];
+    [FNAPI.fantasy rosterForSeasonID:2019 leagueID:186088 teamID:1 scoringPeriodID:50
+                          completion:^(FantasyRoster *roster) {
+        
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

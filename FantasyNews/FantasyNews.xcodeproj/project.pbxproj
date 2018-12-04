@@ -31,6 +31,7 @@
 		5083AD3021B0E6D9006463A9 /* PlayerNavBarBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5083AD2F21B0E6D9006463A9 /* PlayerNavBarBehaviorDefiner.m */; };
 		508AD6D621B694D40076A3A9 /* FantasyTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 508AD6D421B694D40076A3A9 /* FantasyTeamTableViewCell.m */; };
 		508AD6D721B694D40076A3A9 /* FantasyTeamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 508AD6D521B694D40076A3A9 /* FantasyTeamTableViewCell.xib */; };
+		508AD6DC21B7135D0076A3A9 /* FantasyRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 508AD6DB21B7135D0076A3A9 /* FantasyRoster.m */; };
 		50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780921AF66CF00F2DB59 /* AppDelegate.m */; };
 		50A1780D21AF66CF00F2DB59 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1780C21AF66CF00F2DB59 /* MainViewController.m */; };
 		50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1780E21AF66CF00F2DB59 /* Main.storyboard */; };
@@ -96,6 +97,8 @@
 		508AD6D321B694D40076A3A9 /* FantasyTeamTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyTeamTableViewCell.h; sourceTree = "<group>"; };
 		508AD6D421B694D40076A3A9 /* FantasyTeamTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyTeamTableViewCell.m; sourceTree = "<group>"; };
 		508AD6D521B694D40076A3A9 /* FantasyTeamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FantasyTeamTableViewCell.xib; sourceTree = "<group>"; };
+		508AD6DA21B7135D0076A3A9 /* FantasyRoster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyRoster.h; sourceTree = "<group>"; };
+		508AD6DB21B7135D0076A3A9 /* FantasyRoster.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyRoster.m; sourceTree = "<group>"; };
 		50A1780521AF66CF00F2DB59 /* FantasyNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FantasyNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A1780821AF66CF00F2DB59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A1780921AF66CF00F2DB59 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -420,6 +423,24 @@
 			path = "Team TVC";
 			sourceTree = "<group>";
 		};
+		508AD6D921B713450076A3A9 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				50DCEEEB21B3277A009B4749 /* FantasyUser.h */,
+				50DCEEEC21B3277A009B4749 /* FantasyUser.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		508AD6DD21B713610076A3A9 /* Roster */ = {
+			isa = PBXGroup;
+			children = (
+				508AD6DA21B7135D0076A3A9 /* FantasyRoster.h */,
+				508AD6DB21B7135D0076A3A9 /* FantasyRoster.m */,
+			);
+			path = Roster;
+			sourceTree = "<group>";
+		};
 		50A177FC21AF66CF00F2DB59 = {
 			isa = PBXGroup;
 			children = (
@@ -454,8 +475,8 @@
 		50DCEEEA21B32741009B4749 /* Fantasy */ = {
 			isa = PBXGroup;
 			children = (
-				50DCEEEB21B3277A009B4749 /* FantasyUser.h */,
-				50DCEEEC21B3277A009B4749 /* FantasyUser.m */,
+				508AD6D921B713450076A3A9 /* User */,
+				508AD6DD21B713610076A3A9 /* Roster */,
 			);
 			path = Fantasy;
 			sourceTree = "<group>";
@@ -681,6 +702,7 @@
 				5004BCF721AF88D600C2D43F /* RotoworldAPI.m in Sources */,
 				508AD6D621B694D40076A3A9 /* FantasyTeamTableViewCell.m in Sources */,
 				50DCEEFD21B3D92D009B4749 /* SlidingView.m in Sources */,
+				508AD6DC21B7135D0076A3A9 /* FantasyRoster.m in Sources */,
 				5004BD0921AF95D100C2D43F /* RotoworldNews.m in Sources */,
 				5004BD1F21AFB99B00C2D43F /* NewsOverviewTableViewCell.m in Sources */,
 				50DCEEF921B3CFD4009B4749 /* FNButton.m in Sources */,

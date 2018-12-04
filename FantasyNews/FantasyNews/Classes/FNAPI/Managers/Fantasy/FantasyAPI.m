@@ -7,7 +7,8 @@
 //
 
 #define DISNEY_BASE_URL @"https://registerdisney.go.com/jgc/v5/client/ESPN-FANTASYLM-PROD/"
-#define ESPN_BASE_URL @"http://fan.api.espn.com/apis/v2/"
+#define ESPN_LOGIN_BASE_URL @"http://fan.api.espn.com/apis/v2/"
+#define ESPN_BASE_URL @"http://fantasy.espn.com/apis/v3/games/"
 #define ERROR_DOMAIN @"com.chappyasel.fantasynews"
 
 #import "FantasyAPI.h"
@@ -72,8 +73,8 @@
               }];
 }
 
-- (void)fantasyUserForUserID:(NSString *)userID
-                  completion:(void(^)(FantasyUser *user))completion {
+- (void)userForUserID:(NSString *)userID
+           completion:(void(^)(FantasyUser *user))completion {
     if (!userID) {
         NSLog(@"fantastUserForUserID passed nil for userID");
         completion(nil);
@@ -82,7 +83,7 @@
     NSString *mod = [[userID stringByReplacingOccurrencesOfString:@"{" withString:@"%7B"]
                              stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
     NSString *path = [NSString stringWithFormat:@"fans/%@", mod];
-    [self performRequest: [FNAPIRequest method:GET base:ESPN_BASE_URL path:path
+    [self performRequest: [FNAPIRequest method:GET base:ESPN_LOGIN_BASE_URL path:path
                                         params:@{@"context": @"fantasy"}]
               completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
                   if (error) {
@@ -103,6 +104,49 @@
                       return;
                   }
                   completion(user);
+              }];
+}
+
+- (void)scoringPeriodIDForSeasonID:(NSInteger)seasonID
+                        completion:(void(^)(NSInteger scoringPeriodID))completion {
+    NSString *path = [NSString stringWithFormat:@"fba/seasons/%ld", seasonID];
+    [self performRequest: [FNAPIRequest method:GET base:ESPN_BASE_URL path:path
+                                        params:@{@"view": @"kona_game_state"}]
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
+                  if (error) {
+                      NSLog(@"%@",error);
+                      completion(1);
+                      return;
+                  }
+                  completion([response[@"currentScoringPeriod"][@"id"] integerValue]);
+              }];
+}
+
+- (void)rosterForSeasonID:(NSInteger)seasonID
+                 leagueID:(NSInteger)leagueID
+                   teamID:(NSInteger)teamID
+          scoringPeriodID:(NSInteger)scoringPeriodID
+               completion:(void (^)(FantasyRoster *roster))completion {
+    NSString *path = [NSString stringWithFormat:@"FBA/seasons/%ld/segments/0/leagues/%ld", seasonID, leagueID];
+    [self performRequest: [FNAPIRequest method:GET base:ESPN_BASE_URL path:path
+                                        params:@{@"forTeamId": [@(teamID) stringValue],
+                                                 @"scoringPeriodId": [@(scoringPeriodID) stringValue],
+                                                 @"view": @"cinco_wl_rosterInfo",
+                                                 @"rand": @"0"}]
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
+                  if (error) {
+                      NSLog(@"%@",error);
+                      completion(nil);
+                      return;
+                  }
+                  NSError *JSONError;
+                  FantasyRoster *roster = [[FantasyRoster alloc] initWithDictionary:response error:&JSONError];
+                  if (JSONError) {
+                      NSLog(@"%@", JSONError);
+                      completion(nil);
+                      return;
+                  }
+                  completion(roster);
               }];
 }
 
