@@ -26,16 +26,30 @@
     self.clipsToBounds = true;
     self.minHeight = 80;
     self.maxHeight = 400;
+    self.notchAdjustment = 20;
+}
+
+- (void)setBottomContainerViewHeightConstraint:(NSLayoutConstraint *)constraint {
+    _bottomContainerViewHeightConstraint = constraint;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)setMinHeight:(CGFloat)minHeight {
     BOOL hasBottomBar = UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom > 10.0;
-    _minHeight = minHeight + ((hasBottomBar) ? 20 : 0);
+    _minHeight = minHeight + ((hasBottomBar) ? self.notchAdjustment : 0);
+    [self setYPos:_minHeight];
 }
 
 - (void)setMaxHeight:(CGFloat)maxHeight {
     BOOL hasBottomBar = UIApplication.sharedApplication.delegate.window.safeAreaInsets.bottom > 10.0;
-    _maxHeight = maxHeight + ((hasBottomBar) ? 20 : 0);
+    _maxHeight = maxHeight + ((hasBottomBar) ? self.notchAdjustment : 0);
+}
+
+- (void)setNotchAdjustment:(CGFloat)notchAdjustment {
+    _notchAdjustment = notchAdjustment;
+    self.minHeight = _minHeight;
+    self.maxHeight = _maxHeight;
 }
 
 - (void)collapse:(BOOL)collapse animated:(BOOL)animated {
@@ -111,11 +125,9 @@
 NSTimer *updateTimer;
 
 - (void)startUpdateTimer {
-    updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.02
-                                                   target:self
+    updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self
                                                  selector:@selector(updateNavBarTransparencies)
-                                                 userInfo:nil
-                                                  repeats:YES];
+                                                 userInfo:nil repeats:YES];
 }
 
 - (void)endUpdateTimer {
@@ -126,20 +138,16 @@ NSTimer *updateTimer;
     float currentOffset = self.superview.frame.size.height-self.frame.origin.y;
     if (self.ignorePan) {
         self.bottomContainerView.alpha = 1.0;
-        self.topContainerView.alpha = 0.0;
     }
-    else if (currentOffset-self.minHeight < 20) { //all days (first 20)
-        self.topContainerView.alpha = 1.0;
+    else if (currentOffset-self.minHeight < 20) { //top container view
         self.bottomContainerView.alpha = 0.0;
     }
     else if (currentOffset < self.maxHeight-20) { //transition
         float maxNet = self.maxHeight-self.minHeight-40;
         float netDist = currentOffset-self.minHeight-20;
-        self.topContainerView.alpha = 1 - netDist / maxNet;
         self.bottomContainerView.alpha = netDist / maxNet;
     }
-    else { //all calendar (last 20)
-        self.topContainerView.alpha = 0.0;
+    else { //bottom container view
         self.bottomContainerView.alpha = 1.0;
     }
 }

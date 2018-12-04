@@ -12,11 +12,13 @@
 
 @property (strong, nonatomic) IBOutlet UIView *topContainerView;
 @property (strong, nonatomic) IBOutlet UIView *bottomContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomContainerViewHeightConstraint;
 
 @property (nonatomic) BOOL collapsed;
 @property (nonatomic) BOOL ignorePan;
 @property (nonatomic) CGFloat minHeight;
 @property (nonatomic) CGFloat maxHeight;
+@property (nonatomic) CGFloat notchAdjustment;
 
 - (void)load;
 

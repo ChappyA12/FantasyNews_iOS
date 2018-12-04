@@ -19,22 +19,32 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucU-cJ-oji">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                            <rect key="frame" x="0.0" y="95" width="414" height="250"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n2v-ny-Rcs">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableView>
+                            </subviews>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="n2v-ny-Rcs" secondAttribute="bottom" id="9gb-rU-ske"/>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="RRR-Q1-c08"/>
-                                <constraint firstAttribute="height" constant="400" id="cT9-6B-WjJ"/>
+                                <constraint firstItem="n2v-ny-Rcs" firstAttribute="top" secondItem="ucU-cJ-oji" secondAttribute="top" id="Sxa-1w-7jV"/>
+                                <constraint firstAttribute="height" constant="250" id="cT9-6B-WjJ"/>
+                                <constraint firstAttribute="trailing" secondItem="n2v-ny-Rcs" secondAttribute="trailing" id="dxF-eI-XO5"/>
+                                <constraint firstItem="n2v-ny-Rcs" firstAttribute="leading" secondItem="ucU-cJ-oji" secondAttribute="leading" id="pRm-Fu-eTE"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rs-82-fSF">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                            <rect key="frame" x="0.0" y="15" width="414" height="80"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="700" id="5Tw-j2-6Fd"/>
                                 <constraint firstAttribute="height" constant="80" id="HZF-NR-u4d"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ESPNFantasy" translatesAutoresizingMaskIntoConstraints="NO" id="RVN-qd-gWL">
+                        <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DragIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="RVN-qd-gWL">
                             <rect key="frame" x="187" y="0.0" width="40" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="5pL-HN-OKi"/>
@@ -45,12 +55,12 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
+                        <constraint firstItem="ucU-cJ-oji" firstAttribute="top" secondItem="1rs-82-fSF" secondAttribute="bottom" id="4dN-gE-p4F"/>
                         <constraint firstItem="RVN-qd-gWL" firstAttribute="top" secondItem="nHl-nX-7sR" secondAttribute="top" id="BCv-cx-uFf"/>
                         <constraint firstItem="1rs-82-fSF" firstAttribute="width" secondItem="nHl-nX-7sR" secondAttribute="width" priority="999" id="Sae-LQ-z8o"/>
                         <constraint firstItem="RVN-qd-gWL" firstAttribute="centerX" secondItem="nHl-nX-7sR" secondAttribute="centerX" id="So6-BV-LwK"/>
-                        <constraint firstItem="1rs-82-fSF" firstAttribute="top" secondItem="nHl-nX-7sR" secondAttribute="top" id="d2C-bT-kqo"/>
-                        <constraint firstItem="ucU-cJ-oji" firstAttribute="top" secondItem="nHl-nX-7sR" secondAttribute="top" id="eGa-8V-T2h"/>
                         <constraint firstItem="ucU-cJ-oji" firstAttribute="centerX" secondItem="nHl-nX-7sR" secondAttribute="centerX" id="jgz-DP-cbT"/>
+                        <constraint firstItem="1rs-82-fSF" firstAttribute="top" secondItem="RVN-qd-gWL" secondAttribute="bottom" id="nfw-bk-btc"/>
                         <constraint firstItem="ucU-cJ-oji" firstAttribute="width" secondItem="nHl-nX-7sR" secondAttribute="width" priority="999" id="nhU-IV-Di2"/>
                         <constraint firstItem="1rs-82-fSF" firstAttribute="centerX" secondItem="nHl-nX-7sR" secondAttribute="centerX" id="wbW-ta-uei"/>
                     </constraints>
@@ -70,9 +80,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bottomContainerView" destination="ucU-cJ-oji" id="nrA-Iu-aAh"/>
+                <outlet property="bottomContainerViewHeightConstraint" destination="cT9-6B-WjJ" id="N9Q-0d-a1a"/>
                 <outlet property="dragIncicatorView" destination="RVN-qd-gWL" id="dwF-oY-7HF"/>
+                <outlet property="tableView" destination="n2v-ny-Rcs" id="gAI-XM-Tj0"/>
                 <outlet property="topContainerView" destination="1rs-82-fSF" id="VIb-ne-0MR"/>
             </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
         </view>
         <panGestureRecognizer minimumNumberOfTouches="1" id="5FY-pR-yBr">
             <connections>
@@ -81,6 +94,6 @@
         </panGestureRecognizer>
     </objects>
     <resources>
-        <image name="ESPNFantasy" width="500" height="500"/>
+        <image name="DragIndicator" width="644" height="71"/>
     </resources>
 </document>
