@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="237.68115942028987" y="-11.383928571428571"/>
         </scene>
-        <!--Fantasy View Controller-->
+        <!--Fantasy-->
         <scene sceneID="5y9-Nv-Rem">
             <objects>
-                <viewController storyboardIdentifier="fantasy" id="MrP-oa-oNS" customClass="FantasyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="fantasy" title="Fantasy" id="MrP-oa-oNS" customClass="FantasyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nXk-mk-XUm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,11 +115,45 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-n8-rKe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWH-n7-SjN" customClass="FNButton">
+                                        <rect key="frame" x="57" y="688" width="300" height="55"/>
+                                        <color key="backgroundColor" red="0.39935451750000001" green="0.75177818539999997" blue="0.97652465109999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="YUi-ho-scZ"/>
+                                            <constraint firstAttribute="width" constant="300" id="c2z-FN-Bd5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <state key="normal" title="Sign in to ESPN Fantasy Basketball">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="MrP-oa-oNS" eventType="touchUpInside" id="xwW-ug-y1R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="WWH-n7-SjN" firstAttribute="centerX" secondItem="ADv-n8-rKe" secondAttribute="centerX" id="EpM-7x-fjn"/>
+                                    <constraint firstAttribute="bottom" secondItem="WWH-n7-SjN" secondAttribute="bottom" constant="65" id="zQ2-h0-fA6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DOt-3D-gV6" firstAttribute="top" secondItem="nXk-mk-XUm" secondAttribute="top" id="4Gs-xS-6nc"/>
                             <constraint firstItem="DOt-3D-gV6" firstAttribute="leading" secondItem="uev-CB-OfP" secondAttribute="leading" id="CN7-JA-67t"/>
+                            <constraint firstItem="ADv-n8-rKe" firstAttribute="leading" secondItem="uev-CB-OfP" secondAttribute="leading" id="JVq-6U-WLb"/>
+                            <constraint firstAttribute="bottom" secondItem="ADv-n8-rKe" secondAttribute="bottom" id="MGX-CK-Ol8"/>
+                            <constraint firstItem="uev-CB-OfP" firstAttribute="top" secondItem="ADv-n8-rKe" secondAttribute="top" id="OUA-q8-dfQ"/>
+                            <constraint firstItem="ADv-n8-rKe" firstAttribute="trailing" secondItem="uev-CB-OfP" secondAttribute="trailing" id="Rzu-qU-sVs"/>
                             <constraint firstItem="uev-CB-OfP" firstAttribute="trailing" secondItem="DOt-3D-gV6" secondAttribute="trailing" id="TFR-hX-lrL"/>
                             <constraint firstAttribute="bottom" secondItem="DOt-3D-gV6" secondAttribute="bottom" id="ZZs-71-wHo"/>
                         </constraints>
@@ -127,6 +161,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="signInOverlay" destination="ADv-n8-rKe" id="vOD-P1-sRP"/>
                         <outlet property="tableView" destination="DOt-3D-gV6" id="AkQ-29-Laf"/>
                     </connections>
                 </viewController>

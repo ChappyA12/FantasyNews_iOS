@@ -26,7 +26,7 @@
     if (components.year != 0)
         return [NSString stringWithFormat:@"%ldy",components.year];
     if (components.month != 0)
-        return [NSString stringWithFormat:@"%ldm",components.month];
+        return [NSString stringWithFormat:@"%ldmo",components.month];
     if (components.day != 0)
         return [NSString stringWithFormat:@"%ldd",components.day];
     if (components.hour != 0)

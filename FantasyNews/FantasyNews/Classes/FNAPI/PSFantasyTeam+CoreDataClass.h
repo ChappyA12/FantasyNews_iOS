@@ -9,14 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class PSFantasyPlayer, PSFantasyUser;
-
-NS_ASSUME_NONNULL_BEGIN
+@class PSFantasyPlayer, PSFantasyUser, FantasyTeam;
 
 @interface PSFantasyTeam : NSManagedObject
 
-@end
++ (PSFantasyTeam *)persistentTeamforTeam:(FantasyTeam *)team;
 
-NS_ASSUME_NONNULL_END
+@end
 
 #import "PSFantasyTeam+CoreDataProperties.h"

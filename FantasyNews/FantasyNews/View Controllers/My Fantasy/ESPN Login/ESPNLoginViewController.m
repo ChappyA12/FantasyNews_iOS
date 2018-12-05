@@ -106,19 +106,20 @@
                 self.errorLabel.hidden = false;
                 return;
             }
+            [FNAPI.fantasy userForUserID:userID completion:^(FantasyUser *user) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.loadingIndicator stopAnimating];
+                    self.loginButton.enabled = true;
+                    if (!user) {
+                        self.errorLabel.text = @"We could not process your account. Please try again later.";
+                        self.errorLabel.hidden = false;
+                        return;
+                    }
+                    [self animateOut];
+                    [self.delegate espnLoginVC:self didSucceedWithResultFantasyUser:user];
+                });
+            }];
         });
-        [FNAPI.fantasy userForUserID:userID completion:^(FantasyUser *user) {
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [self.loadingIndicator stopAnimating];
-                 self.loginButton.enabled = true;
-                 if (!user) {
-                     self.errorLabel.text = @"We could not process your account. Please try again later.";
-                     self.errorLabel.hidden = false;
-                     return;
-                 }
-                 [self animateOut];
-             });
-         }];
      }];
 }
 
@@ -174,14 +175,15 @@
         self.contentView.alpha = 0.5;
     }
     CGPoint endPoint = self.contentView.center;
-    self.contentView.center = CGPointMake(-self.contentView.frame.origin.x+self.originPoint.x,
-                                        -self.contentView.frame.origin.y+self.originPoint.y);
+    self.contentView.center = self.originPoint;
     [UIView animateWithDuration:(self.needsAnimation)? 0.25 : 0.0 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.contentView.transform = CGAffineTransformIdentity;
         self.contentView.center = endPoint;
         self.contentView.alpha = 0.994; //prevents shadow
         self.backgroundView.alpha = 1.0;
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        [self.usernameField becomeFirstResponder];
+    }];
 }
 
 - (void)animateOut {

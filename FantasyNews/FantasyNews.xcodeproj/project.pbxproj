@@ -421,9 +421,9 @@
 		5058694421B74E550050306C /* User */ = {
 			isa = PBXGroup;
 			children = (
-				5058692E21B74DFB0050306C /* PSFantasyUser+CoreDataProperties.h */,
 				5058692321B74DFA0050306C /* PSFantasyUser+CoreDataClass.h */,
 				5058692221B74DFA0050306C /* PSFantasyUser+CoreDataClass.m */,
+				5058692E21B74DFB0050306C /* PSFantasyUser+CoreDataProperties.h */,
 				5058692521B74DFA0050306C /* PSFantasyUser+CoreDataProperties.m */,
 			);
 			path = User;
@@ -432,9 +432,9 @@
 		5058694521B74E610050306C /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				5058693021B74DFC0050306C /* PSFantasyTeam+CoreDataProperties.h */,
 				5058693121B74DFC0050306C /* PSFantasyTeam+CoreDataClass.h */,
 				5058692721B74DFA0050306C /* PSFantasyTeam+CoreDataClass.m */,
+				5058693021B74DFC0050306C /* PSFantasyTeam+CoreDataProperties.h */,
 				5058692C21B74DFB0050306C /* PSFantasyTeam+CoreDataProperties.m */,
 			);
 			path = Team;
@@ -465,7 +465,6 @@
 		5058694821B74E7F0050306C /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				5058692621B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.h */,
 				5058692A21B74DFB0050306C /* PSRotoworldTeam+CoreDataClass.h */,
 				5058691D21B74DF90050306C /* PSRotoworldTeam+CoreDataClass.m */,
 				5058692621B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.h */,

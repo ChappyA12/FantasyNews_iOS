@@ -8,9 +8,6 @@
 
 #import "PSFantasyUser+CoreDataClass.h"
 
-
-NS_ASSUME_NONNULL_BEGIN
-
 @interface PSFantasyUser (CoreDataProperties)
 
 + (NSFetchRequest<PSFantasyUser *> *)fetchRequest;
@@ -28,5 +25,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeTeams:(NSSet<PSFantasyTeam *> *)values;
 
 @end
-
-NS_ASSUME_NONNULL_END

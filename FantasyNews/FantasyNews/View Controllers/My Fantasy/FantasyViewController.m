@@ -7,14 +7,18 @@
 //
 
 #import "FantasyViewController.h"
+#import "PSFantasyUser+CoreDataClass.h"
 #import "NewsOverviewTableViewCell.h"
 #import "ZFModalTransitionAnimator.h"
 #import "ESPNLoginViewController.h"
 #import "FantasySlidingView.h"
+#import "FantasyUser.h"
+#import "FNCoreData.h"
 
-@interface FantasyViewController () <FantasySlidingViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface FantasyViewController () <FantasySlidingViewDelegate, UITableViewDelegate, UITableViewDataSource, ESPNLoginViewControllerDelegate>
 @property (nonatomic) ZFModalTransitionAnimator *animator;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *signInOverlay;
 @property FantasySlidingView *slidingView;
 @property (nonatomic) CGFloat deltaOffset;
 @property (nonatomic) CGFloat lastOffset;
@@ -33,12 +37,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self loadSlidingView];
+    [self.view bringSubviewToFront:self.signInOverlay];
 }
 
 - (IBAction)loginPressed:(UIButton *)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ESPNLoginViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"espnlogin"];
-    vc.originPoint = sender.center;
+    vc.originPoint = [self.signInOverlay convertPoint:sender.center toView:self.view];
+    vc.delegate = self;
     self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:vc];
     vc.modalPresentationStyle = UIModalPresentationCustom;
     self.animator.bounces = NO;
@@ -96,6 +102,20 @@
         [self.slidingView collapse:YES animated:YES];
     }
     self.lastOffset = scrollView.contentOffset.y;
+}
+
+#pragma mark - espnLoginVC delegate
+
+- (void)espnLoginVC:(ESPNLoginViewController *)loginVC didSucceedWithResultFantasyUser:(FantasyUser *)user {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.signInOverlay.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.signInOverlay removeFromSuperview];
+    }];
+    if (![PSFantasyUser persistentUserWithUserID:user.userID]) {
+        [PSFantasyUser persistentUserforUser:user];
+        [FNCoreData.sharedInstance save];
+    }
 }
 
 @end
