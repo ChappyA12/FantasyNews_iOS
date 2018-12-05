@@ -11,6 +11,7 @@
 #import "NewsOverviewTableViewCell.h"
 #import "ZFModalTransitionAnimator.h"
 #import "PlayerViewController.h"
+#import "PSRotoworldPlayer+CoreDataClass.h"
 #import "FNAPI.h"
 
 @interface MainViewController ()
@@ -31,6 +32,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshNews];
+    [PSRotoworldPlayer saveAllPlayers];
     [FNAPI.fantasy scoringPeriodIDForSeasonID:2019 completion:^(NSInteger scoringPeriodID) {
         
     }];

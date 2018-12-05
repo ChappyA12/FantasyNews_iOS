@@ -21,6 +21,19 @@
 		5004BD2021AFB99B00C2D43F /* NewsOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5004BD1E21AFB99B00C2D43F /* NewsOverviewTableViewCell.xib */; };
 		5004BD2421AFC46500C2D43F /* TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD2221AFC46500C2D43F /* TimeAgo.m */; };
 		5004BD2921AFD02800C2D43F /* UIColor+FNColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5004BD2821AFD02800C2D43F /* UIColor+FNColors.m */; };
+		5058693521B74DFC0050306C /* PSRotoworldTeam+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058691D21B74DF90050306C /* PSRotoworldTeam+CoreDataClass.m */; };
+		5058693621B74DFC0050306C /* PSFantasyPlayer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058691E21B74DF90050306C /* PSFantasyPlayer+CoreDataProperties.m */; };
+		5058693721B74DFC0050306C /* PSRotoworldTeam+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692121B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.m */; };
+		5058693821B74DFC0050306C /* PSFantasyUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692221B74DFA0050306C /* PSFantasyUser+CoreDataClass.m */; };
+		5058693921B74DFC0050306C /* PSFantasyUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692521B74DFA0050306C /* PSFantasyUser+CoreDataProperties.m */; };
+		5058693A21B74DFC0050306C /* PSFantasyTeam+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692721B74DFA0050306C /* PSFantasyTeam+CoreDataClass.m */; };
+		5058693B21B74DFC0050306C /* PSRotoworldNews+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692921B74DFB0050306C /* PSRotoworldNews+CoreDataClass.m */; };
+		5058693C21B74DFC0050306C /* PSFantasyPlayer+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692B21B74DFB0050306C /* PSFantasyPlayer+CoreDataClass.m */; };
+		5058693D21B74DFC0050306C /* PSFantasyTeam+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692C21B74DFB0050306C /* PSFantasyTeam+CoreDataProperties.m */; };
+		5058693E21B74DFC0050306C /* PSRotoworldPlayer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058692F21B74DFB0050306C /* PSRotoworldPlayer+CoreDataProperties.m */; };
+		5058693F21B74DFC0050306C /* PSRotoworldNews+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058693221B74DFC0050306C /* PSRotoworldNews+CoreDataProperties.m */; };
+		5058694021B74DFC0050306C /* PSRotoworldPlayer+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058693421B74DFC0050306C /* PSRotoworldPlayer+CoreDataClass.m */; };
+		5058694B21B7509A0050306C /* FNCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5058694921B7509A0050306C /* FNCoreData.m */; };
 		506C15CC21B4E9C4004E2DCA /* PlayerSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506C15CB21B4E9C4004E2DCA /* PlayerSearchTableViewController.m */; };
 		5083AD1821B080BA006463A9 /* LeftSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5083AD1721B080BA006463A9 /* LeftSideMenuViewController.m */; };
 		5083AD1E21B08183006463A9 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5083AD1C21B08183006463A9 /* SideMenuTableViewCell.m */; };
@@ -80,6 +93,33 @@
 		5004BD2721AFD02800C2D43F /* UIColor+FNColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FNColors.h"; sourceTree = "<group>"; };
 		5004BD2821AFD02800C2D43F /* UIColor+FNColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FNColors.m"; sourceTree = "<group>"; };
 		5004BD2B21AFD12800C2D43F /* FantasyNewsPrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyNewsPrefixHeader.h; sourceTree = "<group>"; };
+		5058691D21B74DF90050306C /* PSRotoworldTeam+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSRotoworldTeam+CoreDataClass.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldTeam+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5058691E21B74DF90050306C /* PSFantasyPlayer+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSFantasyPlayer+CoreDataProperties.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyPlayer+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5058691F21B74DF90050306C /* PSRotoworldNews+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSRotoworldNews+CoreDataProperties.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldNews+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5058692021B74DF90050306C /* PSRotoworldNews+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSRotoworldNews+CoreDataClass.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldNews+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5058692121B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSRotoworldTeam+CoreDataProperties.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldTeam+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5058692221B74DFA0050306C /* PSFantasyUser+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSFantasyUser+CoreDataClass.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyUser+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5058692321B74DFA0050306C /* PSFantasyUser+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSFantasyUser+CoreDataClass.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyUser+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5058692421B74DFA0050306C /* PSRotoworldPlayer+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSRotoworldPlayer+CoreDataClass.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldPlayer+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5058692521B74DFA0050306C /* PSFantasyUser+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSFantasyUser+CoreDataProperties.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyUser+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5058692621B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSRotoworldTeam+CoreDataProperties.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldTeam+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5058692721B74DFA0050306C /* PSFantasyTeam+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSFantasyTeam+CoreDataClass.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyTeam+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5058692821B74DFA0050306C /* PSFantasyPlayer+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSFantasyPlayer+CoreDataProperties.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyPlayer+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5058692921B74DFB0050306C /* PSRotoworldNews+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSRotoworldNews+CoreDataClass.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldNews+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5058692A21B74DFB0050306C /* PSRotoworldTeam+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSRotoworldTeam+CoreDataClass.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldTeam+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5058692B21B74DFB0050306C /* PSFantasyPlayer+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSFantasyPlayer+CoreDataClass.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyPlayer+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5058692C21B74DFB0050306C /* PSFantasyTeam+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSFantasyTeam+CoreDataProperties.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyTeam+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5058692D21B74DFB0050306C /* PSFantasyPlayer+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSFantasyPlayer+CoreDataClass.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyPlayer+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5058692E21B74DFB0050306C /* PSFantasyUser+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSFantasyUser+CoreDataProperties.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyUser+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5058692F21B74DFB0050306C /* PSRotoworldPlayer+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSRotoworldPlayer+CoreDataProperties.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldPlayer+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5058693021B74DFC0050306C /* PSFantasyTeam+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSFantasyTeam+CoreDataProperties.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyTeam+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5058693121B74DFC0050306C /* PSFantasyTeam+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSFantasyTeam+CoreDataClass.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSFantasyTeam+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		5058693221B74DFC0050306C /* PSRotoworldNews+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSRotoworldNews+CoreDataProperties.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldNews+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		5058693321B74DFC0050306C /* PSRotoworldPlayer+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PSRotoworldPlayer+CoreDataProperties.h"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldPlayer+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		5058693421B74DFC0050306C /* PSRotoworldPlayer+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PSRotoworldPlayer+CoreDataClass.m"; path = "/Users/chappyasel/Desktop/Github Repos/FantasyNews_iOS/FantasyNews/FantasyNews/Classes/FNAPI/PSRotoworldPlayer+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		5058694921B7509A0050306C /* FNCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNCoreData.m; sourceTree = "<group>"; };
+		5058694A21B7509A0050306C /* FNCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNCoreData.h; sourceTree = "<group>"; };
+		5058694D21B751CD0050306C /* FantasyNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FantasyNews.entitlements; sourceTree = "<group>"; };
 		506C15CA21B4E9C4004E2DCA /* PlayerSearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerSearchTableViewController.h; sourceTree = "<group>"; };
 		506C15CB21B4E9C4004E2DCA /* PlayerSearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerSearchTableViewController.m; sourceTree = "<group>"; };
 		5083AD1621B080BA006463A9 /* LeftSideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSideMenuViewController.h; sourceTree = "<group>"; };
@@ -150,6 +190,7 @@
 		5004BCEE21AF884200C2D43F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5058694D21B751CD0050306C /* FantasyNews.entitlements */,
 				5004BD2B21AFD12800C2D43F /* FantasyNewsPrefixHeader.h */,
 				50A1781A21AF66D000F2DB59 /* main.m */,
 				50A1781921AF66D000F2DB59 /* Info.plist */,
@@ -224,7 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				5004BCFF21AF8B4800C2D43F /* Rotoworld */,
+				5058694121B74E1C0050306C /* PSRotoworld */,
 				50DCEEEA21B32741009B4749 /* Fantasy */,
+				5058694221B74E300050306C /* PSFantasy */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +360,7 @@
 		5004BD2521AFC47900C2D43F /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5058694C21B7509E0050306C /* FNCoreData */,
 				5004BD2A21AFD02D00C2D43F /* FNColors */,
 				5004BD2621AFC48B00C2D43F /* TimeAgo */,
 				50DCEEF621B3CFBB009B4749 /* FNButton */,
@@ -341,6 +385,101 @@
 				5004BD2821AFD02800C2D43F /* UIColor+FNColors.m */,
 			);
 			path = FNColors;
+			sourceTree = "<group>";
+		};
+		5058694121B74E1C0050306C /* PSRotoworld */ = {
+			isa = PBXGroup;
+			children = (
+				5058694721B74E720050306C /* Player */,
+				5058694821B74E7F0050306C /* Team */,
+				5058694621B74E6C0050306C /* News */,
+			);
+			path = PSRotoworld;
+			sourceTree = "<group>";
+		};
+		5058694221B74E300050306C /* PSFantasy */ = {
+			isa = PBXGroup;
+			children = (
+				5058694421B74E550050306C /* User */,
+				5058694521B74E610050306C /* Team */,
+				5058694321B74E490050306C /* Player */,
+			);
+			path = PSFantasy;
+			sourceTree = "<group>";
+		};
+		5058694321B74E490050306C /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5058692821B74DFA0050306C /* PSFantasyPlayer+CoreDataProperties.h */,
+				5058692D21B74DFB0050306C /* PSFantasyPlayer+CoreDataClass.h */,
+				5058692B21B74DFB0050306C /* PSFantasyPlayer+CoreDataClass.m */,
+				5058691E21B74DF90050306C /* PSFantasyPlayer+CoreDataProperties.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		5058694421B74E550050306C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				5058692E21B74DFB0050306C /* PSFantasyUser+CoreDataProperties.h */,
+				5058692321B74DFA0050306C /* PSFantasyUser+CoreDataClass.h */,
+				5058692221B74DFA0050306C /* PSFantasyUser+CoreDataClass.m */,
+				5058692521B74DFA0050306C /* PSFantasyUser+CoreDataProperties.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		5058694521B74E610050306C /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				5058693021B74DFC0050306C /* PSFantasyTeam+CoreDataProperties.h */,
+				5058693121B74DFC0050306C /* PSFantasyTeam+CoreDataClass.h */,
+				5058692721B74DFA0050306C /* PSFantasyTeam+CoreDataClass.m */,
+				5058692C21B74DFB0050306C /* PSFantasyTeam+CoreDataProperties.m */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		5058694621B74E6C0050306C /* News */ = {
+			isa = PBXGroup;
+			children = (
+				5058691F21B74DF90050306C /* PSRotoworldNews+CoreDataProperties.h */,
+				5058692021B74DF90050306C /* PSRotoworldNews+CoreDataClass.h */,
+				5058692921B74DFB0050306C /* PSRotoworldNews+CoreDataClass.m */,
+				5058693221B74DFC0050306C /* PSRotoworldNews+CoreDataProperties.m */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		5058694721B74E720050306C /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5058692421B74DFA0050306C /* PSRotoworldPlayer+CoreDataClass.h */,
+				5058693421B74DFC0050306C /* PSRotoworldPlayer+CoreDataClass.m */,
+				5058693321B74DFC0050306C /* PSRotoworldPlayer+CoreDataProperties.h */,
+				5058692F21B74DFB0050306C /* PSRotoworldPlayer+CoreDataProperties.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		5058694821B74E7F0050306C /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				5058692621B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.h */,
+				5058692A21B74DFB0050306C /* PSRotoworldTeam+CoreDataClass.h */,
+				5058691D21B74DF90050306C /* PSRotoworldTeam+CoreDataClass.m */,
+				5058692121B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.m */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		5058694C21B7509E0050306C /* FNCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5058694A21B7509A0050306C /* FNCoreData.h */,
+				5058694921B7509A0050306C /* FNCoreData.m */,
+			);
+			path = FNCoreData;
 			sourceTree = "<group>";
 		};
 		506C15CD21B4E9C8004E2DCA /* Player Search VC */ = {
@@ -572,6 +711,9 @@
 					50A1780421AF66CF00F2DB59 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.SafariKeychain = {
 								enabled = 0;
 							};
@@ -675,29 +817,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5058693D21B74DFC0050306C /* PSFantasyTeam+CoreDataProperties.m in Sources */,
 				50A1780D21AF66CF00F2DB59 /* MainViewController.m in Sources */,
+				5058693F21B74DFC0050306C /* PSRotoworldNews+CoreDataProperties.m in Sources */,
+				5058693E21B74DFC0050306C /* PSRotoworldPlayer+CoreDataProperties.m in Sources */,
 				5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */,
 				5004BCF421AF88AE00C2D43F /* FNAPI.m in Sources */,
 				5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */,
 				50DCEF0221B3D940009B4749 /* FantasySlidingView.m in Sources */,
 				50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */,
+				5058694B21B7509A0050306C /* FNCoreData.m in Sources */,
 				5004BD1521AFAD3A00C2D43F /* RotoworldTeam.m in Sources */,
 				50A1781321AF66CF00F2DB59 /* FantasyNews.xcdatamodeld in Sources */,
+				5058693C21B74DFC0050306C /* PSFantasyPlayer+CoreDataClass.m in Sources */,
 				5004BD1B21AFAF4D00C2D43F /* JSONValueTransformer+UIColor.m in Sources */,
 				5004BD1121AFA7C700C2D43F /* RotoworldPlayer.m in Sources */,
 				5004BD2921AFD02800C2D43F /* UIColor+FNColors.m in Sources */,
 				5083AD2721B08E4E006463A9 /* PlayerViewController.m in Sources */,
+				5058693821B74DFC0050306C /* PSFantasyUser+CoreDataClass.m in Sources */,
 				5083AD3021B0E6D9006463A9 /* PlayerNavBarBehaviorDefiner.m in Sources */,
+				5058693A21B74DFC0050306C /* PSFantasyTeam+CoreDataClass.m in Sources */,
 				5083AD2B21B0E12D006463A9 /* NewsDetailTableViewCell.m in Sources */,
 				5083AD1821B080BA006463A9 /* LeftSideMenuViewController.m in Sources */,
 				5083AD1E21B08183006463A9 /* SideMenuTableViewCell.m in Sources */,
 				50DCEEF021B37F79009B4749 /* FantasyViewController.m in Sources */,
 				50A1781B21AF66D000F2DB59 /* main.m in Sources */,
 				5004BD0D21AFA2E000C2D43F /* JSONValueTransformer+NSDate.m in Sources */,
+				5058693621B74DFC0050306C /* PSFantasyPlayer+CoreDataProperties.m in Sources */,
 				506C15CC21B4E9C4004E2DCA /* PlayerSearchTableViewController.m in Sources */,
+				5058693521B74DFC0050306C /* PSRotoworldTeam+CoreDataClass.m in Sources */,
+				5058693721B74DFC0050306C /* PSRotoworldTeam+CoreDataProperties.m in Sources */,
+				5058693921B74DFC0050306C /* PSFantasyUser+CoreDataProperties.m in Sources */,
 				50DCEEF321B37F96009B4749 /* ESPNLoginViewController.m in Sources */,
 				5004BD2421AFC46500C2D43F /* TimeAgo.m in Sources */,
+				5058693B21B74DFC0050306C /* PSRotoworldNews+CoreDataClass.m in Sources */,
 				50A1780A21AF66CF00F2DB59 /* AppDelegate.m in Sources */,
+				5058694021B74DFC0050306C /* PSRotoworldPlayer+CoreDataClass.m in Sources */,
 				5004BD0621AF8B9A00C2D43F /* FNAPIRequest.m in Sources */,
 				5004BCF721AF88D600C2D43F /* RotoworldAPI.m in Sources */,
 				508AD6D621B694D40076A3A9 /* FantasyTeamTableViewCell.m in Sources */,
@@ -848,6 +1003,7 @@
 			baseConfigurationReference = 16B6026FB308039B44B19660 /* Pods-FantasyNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FantasyNews/Supporting Files/FantasyNews.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q82S7VERUD;
 				GCC_PREFIX_HEADER = "FantasyNews/Supporting Files/FantasyNewsPrefixHeader.h";
@@ -868,6 +1024,7 @@
 			baseConfigurationReference = 32DF01C83192C60F7E4BEF05 /* Pods-FantasyNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FantasyNews/Supporting Files/FantasyNews.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q82S7VERUD;
 				GCC_PREFIX_HEADER = "FantasyNews/Supporting Files/FantasyNewsPrefixHeader.h";
