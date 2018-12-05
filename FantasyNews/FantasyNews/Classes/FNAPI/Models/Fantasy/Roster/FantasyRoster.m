@@ -44,7 +44,8 @@
         @"rotoworldID": @"playerId",
         @"espnID": @"playerId",
         @"firstName": @"playerPoolEntry.player.firstName",
-        @"lastName": @"playerPoolEntry.player.lastName"
+        @"lastName": @"playerPoolEntry.player.lastName",
+        @"jerseyNumber": @"playerPoolEntry.player.jersey"
     }];
 }
 

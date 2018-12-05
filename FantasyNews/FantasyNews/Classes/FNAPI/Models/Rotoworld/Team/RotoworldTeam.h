@@ -17,7 +17,7 @@
 @property (nonatomic) NSString *name;
 @property (nonatomic) UIColor *color;
 @property (nonatomic) NSString *conference;
-@property (nonatomic) NSDate *division;
+@property (nonatomic) NSString *division;
 @property (nonatomic) BOOL official;
 
 @end

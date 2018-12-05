@@ -1,4 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A389" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="PSFantasyPlayer" representedClassName="PSFantasyPlayer" syncable="YES">
+        <attribute name="espnID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jerseyNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rotoworldID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="rotoworld" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSRotoworldPlayer" inverseName="fantasy" inverseEntity="PSRotoworldPlayer" syncable="YES"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSFantasyTeam" inverseName="players" inverseEntity="PSFantasyTeam" syncable="YES"/>
+    </entity>
+    <entity name="PSFantasyTeam" representedClassName="PSFantasyTeam" syncable="YES">
+        <attribute name="abbrev" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entryLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gameID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leagueID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="leagueName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logoLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logoType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="losses" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="points" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scoreboardLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seasonID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="teamFullID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ties" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wins" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFantasyPlayer" inverseName="team" inverseEntity="PSFantasyPlayer" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSFantasyUser" inverseName="teams" inverseEntity="PSFantasyUser" syncable="YES"/>
+    </entity>
+    <entity name="PSFantasyUser" representedClassName="PSFantasyUser" syncable="YES">
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSFantasyTeam" inverseName="user" inverseEntity="PSFantasyTeam" syncable="YES"/>
+    </entity>
+    <entity name="PSRotoworldNews" representedClassName="PSRotoworldNews" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="analysis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="articleID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="headline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="injured" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="news" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sourceLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="player" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSRotoworldPlayer" inverseName="news" inverseEntity="PSRotoworldPlayer" syncable="YES"/>
+    </entity>
+    <entity name="PSRotoworldPlayer" representedClassName="PSRotoworldPlayer" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fantasy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSFantasyPlayer" inverseName="rotoworld" inverseEntity="PSFantasyPlayer" syncable="YES"/>
+        <relationship name="news" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSRotoworldNews" inverseName="player" inverseEntity="PSRotoworldNews" syncable="YES"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSRotoworldTeam" inverseName="players" inverseEntity="PSRotoworldTeam" syncable="YES"/>
+    </entity>
+    <entity name="PSRotoworldTeam" representedClassName="PSRotoworldTeam" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="conference" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="division" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="official" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rawColor" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="teamID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSRotoworldPlayer" inverseName="team" inverseEntity="PSRotoworldPlayer" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PSRotoworldPlayer" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="PSRotoworldTeam" positionX="-54" positionY="-9" width="128" height="163"/>
+        <element name="PSRotoworldNews" positionX="-36" positionY="9" width="128" height="223"/>
+        <element name="PSFantasyUser" positionX="-18" positionY="27" width="128" height="73"/>
+        <element name="PSFantasyTeam" positionX="0" positionY="45" width="128" height="358"/>
+        <element name="PSFantasyPlayer" positionX="18" positionY="63" width="128" height="148"/>
+    </elements>
 </model>
