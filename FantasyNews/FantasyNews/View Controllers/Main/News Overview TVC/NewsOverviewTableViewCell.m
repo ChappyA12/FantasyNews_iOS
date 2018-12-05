@@ -23,6 +23,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.playerImageView.layer.borderColor = UIColor.lightGrayColor.CGColor;
+    self.playerImageView.layer.borderWidth = 1;
 }
 
 - (void)setNews:(PSRotoworldNews *)news {

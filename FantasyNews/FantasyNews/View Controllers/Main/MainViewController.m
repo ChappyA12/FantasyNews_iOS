@@ -44,7 +44,7 @@
             [PSRotoworldPlayer saveAllPlayers:^(BOOL success) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [PSRotoworldNews saveRecentNews:^(BOOL success) {
-                
+        
                     }];
                 });
             }];

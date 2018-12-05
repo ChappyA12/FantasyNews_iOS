@@ -11,12 +11,8 @@
 
 @class PSFantasyTeam, PSRotoworldPlayer;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface PSFantasyPlayer : NSManagedObject
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 #import "PSFantasyPlayer+CoreDataProperties.h"

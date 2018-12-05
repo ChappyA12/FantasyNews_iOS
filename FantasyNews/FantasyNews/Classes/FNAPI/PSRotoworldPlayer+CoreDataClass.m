@@ -45,26 +45,24 @@
                                           completion:^(NSDictionary *first, NSDictionary *last, NSDictionary *firstLast) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 for (RotoworldPlayer *player in players) {
-                    if (![self playerForRotoworldID:player.playerID]) {
-                        NSInteger espnID = -1;
-                        NSArray *full = [firstLast objectForKey:player.fullName];
-                        if (full && full.count == 1) {
-                            espnID = [full.firstObject intValue];
+                    NSInteger espnID = -1;
+                    NSArray *full = [firstLast objectForKey:player.fullName];
+                    if (full && full.count == 1) {
+                        espnID = [full.firstObject intValue];
+                    } else {
+                        NSArray *lastName = [last objectForKey:player.lastName];
+                        if (lastName && lastName.count == 1) {
+                            espnID = [lastName.firstObject intValue];
                         } else {
-                            NSArray *lastName = [last objectForKey:player.lastName];
-                            if (lastName && lastName.count == 1) {
-                                espnID = [lastName.firstObject intValue];
-                            } else {
-                                NSArray *firstName = [first objectForKey:player.firstName];
-                                if (firstName && firstName.count == 1) {
-                                    espnID = [firstName.firstObject intValue];
-                                }
+                            NSArray *firstName = [first objectForKey:player.firstName];
+                            if (firstName && firstName.count == 1) {
+                                espnID = [firstName.firstObject intValue];
                             }
                         }
-                        [self persistentPlayerforPlayer:player withEspnID:espnID];
-                        NSLog(@"Added %@", player.fullName);
                     }
+                    [self persistentPlayerforPlayer:player withEspnID:espnID];
                 }
+                NSLog(@"Added Players");
                 [FNCoreData.sharedInstance save];
                 completion(YES);
             });
@@ -93,20 +91,24 @@
 
 + (PSRotoworldPlayer *)persistentPlayerforPlayer:(RotoworldPlayer *)player withEspnID:(NSInteger)espnID {
     NSManagedObjectContext *context = FNCoreData.sharedInstance.context;
-    PSRotoworldPlayer *psPlayer =
-        [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldPlayer"
-                                      inManagedObjectContext:context];
+    PSRotoworldPlayer *psPlayer = [self playerForRotoworldID:player.playerID];
+    if (!psPlayer) {
+        psPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldPlayer"
+                                                 inManagedObjectContext:context];
+    }
     psPlayer.rotoworldID = (int32_t)player.playerID;
     psPlayer.espnID = (int32_t)espnID;
     psPlayer.firstName = player.firstName;
     psPlayer.lastName = player.lastName;
     psPlayer.position = player.position;
-    psPlayer.teamID = player.team;
     psPlayer.birthday = player.birthday;
-    PSRotoworldTeam *team = [PSRotoworldTeam teamForTeamID:player.team];
-    if (team) {
-        psPlayer.team = team;
-        [team addPlayersObject:psPlayer];
+    if (psPlayer.teamID != player.team) {
+        psPlayer.teamID = player.team;
+        PSRotoworldTeam *team = [PSRotoworldTeam teamForTeamID:player.team];
+        if (team) {
+            psPlayer.team = team;
+            [team addPlayersObject:psPlayer];
+        }
     }
     return psPlayer;
 }
