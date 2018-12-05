@@ -40,11 +40,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [PSRotoworldTeam saveAllTeams:^(BOOL success) {
-        [PSRotoworldPlayer saveAllPlayers:^(BOOL success) {
-            [PSRotoworldNews saveRecentNews:^(BOOL success) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [PSRotoworldPlayer saveAllPlayers:^(BOOL success) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [PSRotoworldNews saveRecentNews:^(BOOL success) {
                 
+                    }];
+                });
             }];
-        }];
+        });
     }];
 }
 

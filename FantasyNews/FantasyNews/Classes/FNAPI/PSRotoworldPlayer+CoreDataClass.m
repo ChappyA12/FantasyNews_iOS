@@ -43,34 +43,31 @@
     [FNAPI.rotoworld players:^(NSArray<RotoworldPlayer *> *players) {
         [FNAPI.fantasy playerMappingDictsForSeasonID:2019
                                           completion:^(NSDictionary *first, NSDictionary *last, NSDictionary *firstLast) {
-                                              int noCount = 0;
-            for (RotoworldPlayer *player in players) {
-                if (![self playerForRotoworldID:player.playerID]) {
-                    NSInteger espnID = -1;
-                    NSArray *full = [firstLast objectForKey:player.fullName];
-                    if (full && full.count == 1) {
-                        espnID = [full.firstObject intValue];
-                    } else {
-                        NSArray *lastName = [last objectForKey:player.lastName];
-                        if (lastName && lastName.count == 1) {
-                            espnID = [lastName.firstObject intValue];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (RotoworldPlayer *player in players) {
+                    if (![self playerForRotoworldID:player.playerID]) {
+                        NSInteger espnID = -1;
+                        NSArray *full = [firstLast objectForKey:player.fullName];
+                        if (full && full.count == 1) {
+                            espnID = [full.firstObject intValue];
                         } else {
-                            NSArray *firstName = [first objectForKey:player.firstName];
-                            if (firstName && firstName.count == 1) {
-                                espnID = [firstName.firstObject intValue];
+                            NSArray *lastName = [last objectForKey:player.lastName];
+                            if (lastName && lastName.count == 1) {
+                                espnID = [lastName.firstObject intValue];
                             } else {
-                                NSLog(@"No Match: %@", player.fullName);
-                                noCount ++;
+                                NSArray *firstName = [first objectForKey:player.firstName];
+                                if (firstName && firstName.count == 1) {
+                                    espnID = [firstName.firstObject intValue];
+                                }
                             }
                         }
+                        [self persistentPlayerforPlayer:player withEspnID:espnID];
+                        NSLog(@"Added %@", player.fullName);
                     }
-                    [self persistentPlayerforPlayer:player withEspnID:espnID];
-                    NSLog(@"Added %@", player.fullName);
                 }
-            }
-                                              NSLog(@"NO COUNT: %d -----------------", noCount);
-            [FNCoreData.sharedInstance save];
-            completion(YES);
+                [FNCoreData.sharedInstance save];
+                completion(YES);
+            });
         }];
     }];
 }
