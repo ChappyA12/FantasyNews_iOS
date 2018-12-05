@@ -53,17 +53,15 @@
     </entity>
     <entity name="PSRotoworldPlayer" representedClassName="PSRotoworldPlayer" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="espnID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="playerID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rotoworldID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="teamID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="fantasy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSFantasyPlayer" inverseName="rotoworld" inverseEntity="PSFantasyPlayer" syncable="YES"/>
         <relationship name="news" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PSRotoworldNews" inverseName="player" inverseEntity="PSRotoworldNews" syncable="YES"/>
         <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PSRotoworldTeam" inverseName="players" inverseEntity="PSRotoworldTeam" syncable="YES"/>
-        <fetchIndex name="byPropertyIndex">
-            <fetchIndexElement property="playerID" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="PSRotoworldTeam" representedClassName="PSRotoworldTeam" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -76,7 +74,7 @@
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PSRotoworldPlayer" inverseName="team" inverseEntity="PSRotoworldPlayer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PSRotoworldPlayer" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="PSRotoworldPlayer" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="PSRotoworldTeam" positionX="-54" positionY="-9" width="128" height="163"/>
         <element name="PSRotoworldNews" positionX="-36" positionY="9" width="128" height="223"/>
         <element name="PSFantasyUser" positionX="-18" positionY="27" width="128" height="73"/>

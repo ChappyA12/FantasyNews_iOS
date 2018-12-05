@@ -13,11 +13,11 @@
 @property (nonatomic) NSInteger playerID;
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;
+@property (nonatomic) NSString *fullName;
 @property (nonatomic) NSString *position;
 @property (nonatomic) NSString *team;
 @property (nonatomic) NSDate *birthday;
 
-@property (nonatomic) NSString <Ignore> *fullName;
 @property (nonatomic) NSString <Ignore> *teamPosition;
 @property (nonatomic) NSURL <Ignore> *imageURL;
 

@@ -15,10 +15,18 @@
         @"playerID": @"PLAYERID",
         @"firstName": @"FIRSTNAME",
         @"lastName": @"LASTNAME",
+        @"fullName": @"full",
         @"position": @"MAJPOSIT",
         @"team": @"MAJTEAM",
         @"birthday": @"BIRTHDATE"
     }];
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict error:(NSError *__autoreleasing *)err {
+    NSMutableDictionary *player = dict.mutableCopy;
+    player[@"full"] = [NSString stringWithFormat:@"%@ %@", player[@"FIRSTNAME"], player[@"LASTNAME"]];
+    self = [super initWithDictionary:player error:err];
+    return self;
 }
 
 - (BOOL)isEqual:(RotoworldPlayer *)other {

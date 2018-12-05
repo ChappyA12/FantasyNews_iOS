@@ -150,4 +150,39 @@
               }];
 }
 
+- (void)playerMappingDictsForSeasonID:(NSInteger)seasonID
+                           completion:(void(^)(NSDictionary *first, NSDictionary *last, NSDictionary *firstLast))completion {
+    NSString *path = [NSString stringWithFormat:@"fba/seasons/%ld/players", seasonID];
+    [self performRequest: [FNAPIRequest method:GET base:ESPN_BASE_URL path:path
+                                        params:@{@"view": @"players_wl"}]
+              completion:^(NSDictionary *response, NSDictionary *headers, NSError *error) {
+                  if (error) {
+                      NSLog(@"%@",error);
+                      completion(nil, nil, nil);
+                      return;
+                  }
+                  NSMutableDictionary *firstNames = @{}.mutableCopy;
+                  NSMutableDictionary *lastNames = @{}.mutableCopy;
+                  NSMutableDictionary *fullNames = @{}.mutableCopy;
+                  for (NSDictionary *dict in response) {
+                      NSNumber *espnID = dict[@"id"];
+                      firstNames = [self dictionary:firstNames key:dict[@"firstName"] value:espnID];
+                      lastNames = [self dictionary:lastNames key:dict[@"lastName"] value:espnID];
+                      fullNames = [self dictionary:fullNames key:dict[@"fullName"] value:espnID];
+                  }
+                  completion(firstNames, lastNames, fullNames);
+              }];
+}
+
+- (NSMutableDictionary *)dictionary:(NSMutableDictionary *)dict key:(NSString *)key value:(NSNumber *)value {
+    if ([dict objectForKey:key]) {
+        NSMutableArray *arr = dict[key];
+        [arr addObject:value];
+        dict[key] = arr;
+    } else {
+        dict[key] = @[value].mutableCopy;
+    }
+    return dict;
+}
+
 @end

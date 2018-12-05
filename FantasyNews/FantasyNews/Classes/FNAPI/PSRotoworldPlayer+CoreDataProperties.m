@@ -14,7 +14,8 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"PSRotoworldPlayer"];
 }
 
-@dynamic playerID;
+@dynamic rotoworldID;
+@dynamic espnID;
 @dynamic firstName;
 @dynamic lastName;
 @dynamic position;

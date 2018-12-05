@@ -226,7 +226,7 @@
 			children = (
 				5004BCF221AF88AE00C2D43F /* FNAPI.h */,
 				5004BCF321AF88AE00C2D43F /* FNAPI.m */,
-				5004BCFD21AF8B3000C2D43F /* Managers */,
+				5004BCFD21AF8B3000C2D43F /* APIs */,
 				5004BCFE21AF8B3600C2D43F /* Models */,
 				5004BD0A21AFA2BF00C2D43F /* Transformers */,
 			);
@@ -251,14 +251,14 @@
 			path = Fantasy;
 			sourceTree = "<group>";
 		};
-		5004BCFD21AF8B3000C2D43F /* Managers */ = {
+		5004BCFD21AF8B3000C2D43F /* APIs */ = {
 			isa = PBXGroup;
 			children = (
 				5004BD0021AF8B7400C2D43F /* Base */,
 				5004BCF821AF88DB00C2D43F /* Rotoworld */,
 				5004BCFC21AF891600C2D43F /* Fantasy */,
 			);
-			path = Managers;
+			path = APIs;
 			sourceTree = "<group>";
 		};
 		5004BCFE21AF8B3600C2D43F /* Models */ = {

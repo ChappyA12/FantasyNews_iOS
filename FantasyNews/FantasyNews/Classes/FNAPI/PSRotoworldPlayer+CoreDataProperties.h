@@ -12,7 +12,8 @@
 
 + (NSFetchRequest<PSRotoworldPlayer *> *)fetchRequest;
 
-@property (nonatomic) int32_t playerID;
+@property (nonatomic) int32_t rotoworldID;
+@property (nonatomic) int32_t espnID;
 @property (nullable, nonatomic, copy) NSString *firstName;
 @property (nullable, nonatomic, copy) NSString *lastName;
 @property (nullable, nonatomic, copy) NSString *position;

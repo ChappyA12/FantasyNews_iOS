@@ -39,7 +39,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refreshNews];
     [PSRotoworldTeam saveAllTeams:^(BOOL success) {
         [PSRotoworldPlayer saveAllPlayers:^(BOOL success) {
             [PSRotoworldNews saveRecentNews:^(BOOL success) {

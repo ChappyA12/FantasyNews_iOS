@@ -41,4 +41,7 @@ typedef enum LoginErrorType : NSUInteger {
           scoringPeriodID:(NSInteger)scoringPeriodID
                completion:(void(^)(FantasyRoster *roster))completion;
 
+- (void)playerMappingDictsForSeasonID:(NSInteger)seasonID
+                           completion:(void(^)(NSDictionary *first, NSDictionary *last, NSDictionary *firstLast))completion;
+
 @end
