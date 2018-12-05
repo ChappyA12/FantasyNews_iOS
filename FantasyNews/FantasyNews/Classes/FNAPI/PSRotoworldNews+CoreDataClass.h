@@ -11,12 +11,17 @@
 
 @class PSRotoworldPlayer;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface PSRotoworldNews : NSManagedObject
 
-@end
++ (void)saveRecentNews:(void(^)(BOOL success))completion;
 
-NS_ASSUME_NONNULL_END
++ (void)saveRecentNewsForPlayerID:(NSInteger)playerID
+                       completion:(void(^)(BOOL success))completion;
+
++ (NSArray<PSRotoworldNews *> *)newsForQuery:(NSString *)searchString;
+
++ (PSRotoworldNews *)newsForArticleID:(NSInteger)articleID;
+
+@end
 
 #import "PSRotoworldNews+CoreDataProperties.h"

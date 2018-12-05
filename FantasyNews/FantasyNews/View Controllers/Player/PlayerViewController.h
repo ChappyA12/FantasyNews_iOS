@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class RotoworldNews;
+@class PSRotoworldNews;
 
-@interface PlayerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PlayerViewController : UIViewController
 
-@property (nonatomic) RotoworldNews *news;
+@property (nonatomic) PSRotoworldNews *news;
 
 @end

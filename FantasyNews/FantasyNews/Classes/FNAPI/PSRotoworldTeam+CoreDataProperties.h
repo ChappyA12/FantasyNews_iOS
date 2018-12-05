@@ -8,9 +8,6 @@
 
 #import "PSRotoworldTeam+CoreDataClass.h"
 
-
-NS_ASSUME_NONNULL_BEGIN
-
 @interface PSRotoworldTeam (CoreDataProperties)
 
 + (NSFetchRequest<PSRotoworldTeam *> *)fetchRequest;
@@ -34,5 +31,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removePlayers:(NSSet<PSRotoworldPlayer *> *)values;
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -8,9 +8,6 @@
 
 #import "PSRotoworldNews+CoreDataClass.h"
 
-
-NS_ASSUME_NONNULL_BEGIN
-
 @interface PSRotoworldNews (CoreDataProperties)
 
 + (NSFetchRequest<PSRotoworldNews *> *)fetchRequest;
@@ -29,5 +26,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) PSRotoworldPlayer *player;
 
 @end
-
-NS_ASSUME_NONNULL_END

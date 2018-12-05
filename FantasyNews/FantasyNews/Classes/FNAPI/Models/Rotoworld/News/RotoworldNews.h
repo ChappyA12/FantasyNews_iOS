@@ -30,8 +30,4 @@
 @property (nonatomic) BOOL injured;
 @property (nonatomic) BOOL active;
 
-@property (nonatomic) NSString <Ignore> *fullName;
-@property (nonatomic) NSString <Ignore> *teamPosition;
-@property (nonatomic) NSURL <Ignore> *imageURL;
-
 @end

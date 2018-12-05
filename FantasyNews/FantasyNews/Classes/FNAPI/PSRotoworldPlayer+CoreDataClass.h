@@ -9,15 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class PSFantasyPlayer, PSRotoworldNews, PSRotoworldTeam;
+@class PSFantasyPlayer, PSRotoworldNews, PSRotoworldTeam, RotoworldPlayer;
 
 @interface PSRotoworldPlayer : NSManagedObject
 
-+ (void)saveAllPlayers;
+@property (nonatomic) NSString *fullName;
+@property (nonatomic) NSString *fullTeamPosition;
+@property (nonatomic) NSString *teamPosition;
+@property (nonatomic) NSURL *imageURL;
+
++ (void)saveAllPlayers:(void(^)(BOOL success))completion;
 
 + (NSArray<PSRotoworldPlayer *> *)playersForQuery:(NSString *)searchString;
 
 + (PSRotoworldPlayer *)playerForRotoworldID:(NSInteger)rotoworldID;
+
++ (PSRotoworldPlayer *)persistentPlayerforPlayer:(RotoworldPlayer *)player;
 
 @end
 

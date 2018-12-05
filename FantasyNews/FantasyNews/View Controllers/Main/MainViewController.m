@@ -11,14 +11,18 @@
 #import "NewsOverviewTableViewCell.h"
 #import "ZFModalTransitionAnimator.h"
 #import "PlayerViewController.h"
+#import "PSRotoworldTeam+CoreDataClass.h"
 #import "PSRotoworldPlayer+CoreDataClass.h"
+#import "PSRotoworldNews+CoreDataClass.h"
+#import "FNCoreData.h"
 #import "FNAPI.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic) NSManagedObjectContext *context;
 @property (nonatomic) UISearchController *searchController;
 @property (nonatomic) UIRefreshControl *refreshControl;
-@property (nonatomic) NSArray <RotoworldNews *> *news;
 @property (nonatomic) ZFModalTransitionAnimator *animator;
 @end
 
@@ -26,19 +30,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.context = FNCoreData.sharedInstance.context;
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error])
+        NSLog(@"Main fetch error: %@, %@", error, [error userInfo]);
     [self setUpTableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshNews];
-    [PSRotoworldPlayer saveAllPlayers];
-    [FNAPI.fantasy scoringPeriodIDForSeasonID:2019 completion:^(NSInteger scoringPeriodID) {
-        
-    }];
-    [FNAPI.fantasy rosterForSeasonID:2019 leagueID:186088 teamID:1 scoringPeriodID:50
-                          completion:^(FantasyRoster *roster) {
-        
+    [PSRotoworldTeam saveAllTeams:^(BOOL success) {
+        [PSRotoworldPlayer saveAllPlayers:^(BOOL success) {
+            [PSRotoworldNews saveRecentNews:^(BOOL success) {
+                
+            }];
+        }];
     }];
 }
 
@@ -49,19 +56,15 @@
 
 - (void)refreshNews {
     if ([self.mode isEqualToString:MODE_RECENT]) {
-        [FNAPI.rotoworld newsWithStartingArticleID:0 completion:^(NSArray<RotoworldNews *> *articles) {
+        [PSRotoworldNews saveRecentNews:^(BOOL success) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.news = articles;
                 [self.refreshControl endRefreshing];
-                [self.tableView reloadData];
             });
         }];
     } else {
-        [FNAPI.rotoworld newsHeadlines:^(NSArray<RotoworldNews *> *articles) {
+        [PSRotoworldNews saveRecentNews:^(BOOL success) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.news = articles;
                 [self.refreshControl endRefreshing];
-                [self.tableView reloadData];
             });
         }];
     }
@@ -70,7 +73,7 @@
 #pragma mark - tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.news.count;
+    return self.fetchedResultsController.fetchedObjects.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,14 +85,18 @@
     if (cell == nil) {
         cell = [[NSBundle mainBundle] loadNibNamed:@"NewsOverviewTableViewCell" owner:self options:nil].firstObject;
     }
-    cell.news = self.news[indexPath.row];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+- (void)configureCell:(NewsOverviewTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.news = [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PlayerViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"player"];
-    vc.news = self.news[indexPath.row];
+    vc.news = [self.fetchedResultsController objectAtIndexPath:indexPath];
     self.animator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:vc];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     self.animator.bounces = NO;
@@ -129,6 +136,22 @@
     self.tableView.refreshControl = self.refreshControl;
 }
 
+#pragma mark - fetchedResultsController
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) return _fetchedResultsController;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"PSRotoworldNews" inManagedObjectContext:self.context];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]];
+    fetchRequest.fetchBatchSize = 50;
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                          managedObjectContext:self.context
+                                                                            sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController = frc;
+    _fetchedResultsController.delegate = self;
+    return _fetchedResultsController;
+}
+
 #pragma mark - searchController
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
@@ -156,6 +179,34 @@
     [right setImage:[right.currentImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
            forState:UIControlStateNormal];
     right.tintColor = UIColor.lightGrayColor;
+}
+
+#pragma mark - fetchedResultsController delegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 @end

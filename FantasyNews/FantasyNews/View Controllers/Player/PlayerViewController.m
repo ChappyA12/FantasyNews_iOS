@@ -9,20 +9,24 @@
 #define FlexibleLayoutAttrs BLKFlexibleHeightBarSubviewLayoutAttributes
 
 #import "PlayerViewController.h"
+#import "PSRotoworldNews+CoreDataClass.h"
+#import "PSRotoworldPlayer+CoreDataClass.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SafariServices/SafariServices.h>
 #import "BLKFlexibleHeightBar.h"
 #import "BLKDelegateSplitter.h"
 #import "PlayerNavBarBehaviorDefiner.h"
 #import "NewsDetailTableViewCell.h"
+#import "FNCoreData.h"
 #import "FNAPI.h"
 
-@interface PlayerViewController () <NewsDetailTableViewCellDelegate, SFSafariViewControllerDelegate>
-@property (nonatomic) NSMutableArray <RotoworldNews *> *allNews;
+@interface PlayerViewController () <UITableViewDelegate, UITableViewDataSource, NewsDetailTableViewCellDelegate, SFSafariViewControllerDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic) NSInteger rotoworldPlayerID;
 @property (nonatomic) CGFloat statusBarHeight;
 @property (nonatomic) BLKFlexibleHeightBar *navBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic) NSManagedObjectContext *context;
 @property (nonatomic) BOOL firstLoad;
 @property (nonatomic) BLKDelegateSplitter *delegateSplitter;
 @end
@@ -32,6 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.firstLoad = YES;
+    self.context = FNCoreData.sharedInstance.context;
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error])
+        NSLog(@"Main fetch error: %@, %@", error, [error userInfo]);
     self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     self.sideMenuController.leftViewEnabled = NO;
     self.tableView.dataSource = self;
@@ -52,21 +60,15 @@
     }
 }
 
-- (void)setNews:(RotoworldNews *)news {
+- (void)setNews:(PSRotoworldNews *)news {
     _news = news;
     self.rotoworldPlayerID = news.playerID;
-    self.allNews = @[news].mutableCopy;
 }
 
 - (void)refreshNews {
-    [FNAPI.rotoworld newsForPlayerID:self.rotoworldPlayerID completion:^(NSArray<RotoworldNews *> *articles) {
+    [PSRotoworldNews saveRecentNewsForPlayerID:self.rotoworldPlayerID completion:^(BOOL success) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (articles) {
-                if (self.allNews.count > 0 && ![articles containsObject:self.allNews[0]])
-                    [self.allNews addObjectsFromArray:articles];
-                else self.allNews = articles.mutableCopy;
-                [self.tableView reloadData];
-            }
+            //refresh control
         });
     }];
 }
@@ -74,7 +76,12 @@
 #pragma mark - tableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allNews.count;
+    return self.fetchedResultsController.fetchedObjects.count;
+}
+
+- (void)configureCell:(NewsDetailTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.news = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.delegate = self;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,8 +89,7 @@
     if (cell == nil) {
         cell = [[NSBundle mainBundle] loadNibNamed:@"NewsDetailTableViewCell" owner:self options:nil].firstObject;
     }
-    cell.delegate = self;
-    cell.news = self.allNews[indexPath.row];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
@@ -130,7 +136,7 @@
     imageView.layer.borderWidth = 2;
     imageView.layer.borderColor = UIColor.FNWhiteTextColor.CGColor;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [imageView sd_setImageWithURL: self.news.imageURL
+    [imageView sd_setImageWithURL: self.news.player.imageURL
                  placeholderImage: nil];
     [self.navBar addSubview:imageView];
     
@@ -148,7 +154,7 @@
     
     //NAME
     UILabel *label = [UILabel new];
-    label.text = self.news.fullName;
+    label.text = self.news.player.fullName;
     label.font = [UIFont boldSystemFontOfSize:28];
     label.textColor = UIColor.FNWhiteTextColor;
     [label sizeToFit];
@@ -167,7 +173,7 @@
     
     //TEAM
     UILabel *teamLabel = [UILabel new];
-    teamLabel.text = self.news.teamPosition;
+    teamLabel.text = self.news.player.fullTeamPosition;
     teamLabel.font = [UIFont boldSystemFontOfSize:15];
     teamLabel.textColor = UIColor.FNWhiteTextColor;
     [teamLabel sizeToFit];
@@ -208,6 +214,51 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIColor.statusBarStyle;
+}
+
+#pragma mark - fetchedResultsController
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) return _fetchedResultsController;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    fetchRequest.entity = [NSEntityDescription entityForName:@"PSRotoworldNews" inManagedObjectContext:self.context];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"playerID = %ld", self.rotoworldPlayerID];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO]];
+    fetchRequest.fetchBatchSize = 50;
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                          managedObjectContext:self.context
+                                                                            sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController = frc;
+    _fetchedResultsController.delegate = self;
+    return _fetchedResultsController;
+}
+
+#pragma mark - fetchedResultsController delegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 @end

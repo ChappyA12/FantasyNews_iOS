@@ -443,9 +443,9 @@
 		5058694621B74E6C0050306C /* News */ = {
 			isa = PBXGroup;
 			children = (
-				5058691F21B74DF90050306C /* PSRotoworldNews+CoreDataProperties.h */,
 				5058692021B74DF90050306C /* PSRotoworldNews+CoreDataClass.h */,
 				5058692921B74DFB0050306C /* PSRotoworldNews+CoreDataClass.m */,
+				5058691F21B74DF90050306C /* PSRotoworldNews+CoreDataProperties.h */,
 				5058693221B74DFC0050306C /* PSRotoworldNews+CoreDataProperties.m */,
 			);
 			path = News;
@@ -468,6 +468,7 @@
 				5058692621B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.h */,
 				5058692A21B74DFB0050306C /* PSRotoworldTeam+CoreDataClass.h */,
 				5058691D21B74DF90050306C /* PSRotoworldTeam+CoreDataClass.m */,
+				5058692621B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.h */,
 				5058692121B74DFA0050306C /* PSRotoworldTeam+CoreDataProperties.m */,
 			);
 			path = Team;

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RotoworldNews.h"
+#import "PSRotoworldNews+CoreDataClass.h"
 
 @interface NewsOverviewTableViewCell : UITableViewCell
 
-@property (nonatomic) RotoworldNews *news;
+@property (nonatomic) PSRotoworldNews *news;
 
 @end
