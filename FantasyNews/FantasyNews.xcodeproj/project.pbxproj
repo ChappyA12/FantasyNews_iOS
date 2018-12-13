@@ -52,6 +52,10 @@
 		50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781421AF66D000F2DB59 /* Assets.xcassets */; };
 		50A1781821AF66D000F2DB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A1781621AF66D000F2DB59 /* LaunchScreen.storyboard */; };
 		50A1781B21AF66D000F2DB59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A1781A21AF66D000F2DB59 /* main.m */; };
+		50BA783221C30E09002E83D4 /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BA783021C30E09002E83D4 /* PlayerTableViewCell.m */; };
+		50BA783321C30E09002E83D4 /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BA783121C30E09002E83D4 /* PlayerTableViewCell.xib */; };
+		50BA783821C30E20002E83D4 /* TeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BA783621C30E20002E83D4 /* TeamTableViewCell.m */; };
+		50BA783921C30E20002E83D4 /* TeamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50BA783721C30E20002E83D4 /* TeamTableViewCell.xib */; };
 		50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEC21B3277A009B4749 /* FantasyUser.m */; };
 		50DCEEF021B37F79009B4749 /* FantasyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEEF21B37F79009B4749 /* FantasyViewController.m */; };
 		50DCEEF321B37F96009B4749 /* ESPNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCEEF221B37F96009B4749 /* ESPNLoginViewController.m */; };
@@ -150,6 +154,12 @@
 		50A1781721AF66D000F2DB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50A1781921AF66D000F2DB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50A1781A21AF66D000F2DB59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50BA782F21C30E09002E83D4 /* PlayerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
+		50BA783021C30E09002E83D4 /* PlayerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
+		50BA783121C30E09002E83D4 /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
+		50BA783521C30E20002E83D4 /* TeamTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamTableViewCell.h; sourceTree = "<group>"; };
+		50BA783621C30E20002E83D4 /* TeamTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewCell.m; sourceTree = "<group>"; };
+		50BA783721C30E20002E83D4 /* TeamTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamTableViewCell.xib; sourceTree = "<group>"; };
 		50DCEEEB21B3277A009B4749 /* FantasyUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyUser.h; sourceTree = "<group>"; };
 		50DCEEEC21B3277A009B4749 /* FantasyUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FantasyUser.m; sourceTree = "<group>"; };
 		50DCEEEE21B37F79009B4749 /* FantasyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FantasyViewController.h; sourceTree = "<group>"; };
@@ -487,6 +497,8 @@
 			children = (
 				506C15CA21B4E9C4004E2DCA /* PlayerSearchTableViewController.h */,
 				506C15CB21B4E9C4004E2DCA /* PlayerSearchTableViewController.m */,
+				50BA783421C30E0E002E83D4 /* Player TVC */,
+				50BA783A21C313F1002E83D4 /* Team TVC */,
 			);
 			path = "Player Search VC";
 			sourceTree = "<group>";
@@ -609,6 +621,26 @@
 				5004BCEE21AF884200C2D43F /* Supporting Files */,
 			);
 			path = FantasyNews;
+			sourceTree = "<group>";
+		};
+		50BA783421C30E0E002E83D4 /* Player TVC */ = {
+			isa = PBXGroup;
+			children = (
+				50BA782F21C30E09002E83D4 /* PlayerTableViewCell.h */,
+				50BA783021C30E09002E83D4 /* PlayerTableViewCell.m */,
+				50BA783121C30E09002E83D4 /* PlayerTableViewCell.xib */,
+			);
+			path = "Player TVC";
+			sourceTree = "<group>";
+		};
+		50BA783A21C313F1002E83D4 /* Team TVC */ = {
+			isa = PBXGroup;
+			children = (
+				50BA783521C30E20002E83D4 /* TeamTableViewCell.h */,
+				50BA783621C30E20002E83D4 /* TeamTableViewCell.m */,
+				50BA783721C30E20002E83D4 /* TeamTableViewCell.xib */,
+			);
+			path = "Team TVC";
 			sourceTree = "<group>";
 		};
 		50DCEEEA21B32741009B4749 /* Fantasy */ = {
@@ -750,8 +782,10 @@
 				50A1781521AF66D000F2DB59 /* Assets.xcassets in Resources */,
 				50A1781021AF66CF00F2DB59 /* Main.storyboard in Resources */,
 				508AD6D721B694D40076A3A9 /* FantasyTeamTableViewCell.xib in Resources */,
+				50BA783921C30E20002E83D4 /* TeamTableViewCell.xib in Resources */,
 				50DCEF0121B3D940009B4749 /* FantasySlidingView.xib in Resources */,
 				5083AD2C21B0E12D006463A9 /* NewsDetailTableViewCell.xib in Resources */,
+				50BA783321C30E09002E83D4 /* PlayerTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +857,7 @@
 				5058693E21B74DFC0050306C /* PSRotoworldPlayer+CoreDataProperties.m in Sources */,
 				5004BD0521AF8B9A00C2D43F /* FNAPIBase.m in Sources */,
 				5004BCF421AF88AE00C2D43F /* FNAPI.m in Sources */,
+				50BA783821C30E20002E83D4 /* TeamTableViewCell.m in Sources */,
 				5004BCFB21AF891000C2D43F /* FantasyAPI.m in Sources */,
 				50DCEF0221B3D940009B4749 /* FantasySlidingView.m in Sources */,
 				50DCEEED21B3277A009B4749 /* FantasyUser.m in Sources */,
@@ -861,6 +896,7 @@
 				5004BD0921AF95D100C2D43F /* RotoworldNews.m in Sources */,
 				5004BD1F21AFB99B00C2D43F /* NewsOverviewTableViewCell.m in Sources */,
 				50DCEEF921B3CFD4009B4749 /* FNButton.m in Sources */,
+				50BA783221C30E09002E83D4 /* PlayerTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

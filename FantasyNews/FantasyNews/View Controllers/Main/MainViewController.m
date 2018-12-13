@@ -17,7 +17,7 @@
 #import "FNCoreData.h"
 #import "FNAPI.h"
 
-@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, NSFetchedResultsControllerDelegate>
+@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic) NSManagedObjectContext *context;
@@ -60,17 +60,22 @@
 - (void)refreshNews {
     if ([self.mode isEqualToString:MODE_RECENT]) {
         [PSRotoworldNews saveRecentNews:^(BOOL success) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.refreshControl endRefreshing];
-            });
+            [self updateTableCells];
         }];
     } else {
         [PSRotoworldNews saveRecentNews:^(BOOL success) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.refreshControl endRefreshing];
-            });
+            [self updateTableCells];
         }];
     }
+}
+
+- (void)updateTableCells {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl endRefreshing];
+//        [self.tableView beginUpdates];
+//        [self.tableView reloadRowsAtIndexPaths:self.tableView.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationFade];
+//        [self.tableView endUpdates];
+    });
 }
 
 #pragma mark - tableView
@@ -121,7 +126,7 @@
     PlayerSearchTableViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"playersearch"];
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:vc];
     self.searchController.delegate = self;
-    self.searchController.searchBar.delegate = self;
+    self.searchController.searchBar.delegate = vc;
     self.searchController.searchBar.tintColor = UIColor.FNBarColor;
     [UITextField appearanceWhenContainedInInstancesOfClasses:@[UISearchBar.class]].defaultTextAttributes =
         @{NSForegroundColorAttributeName: UIColor.darkGrayColor};
@@ -155,22 +160,6 @@
     return _fetchedResultsController;
 }
 
-#pragma mark - searchController
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"present");
-    
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    NSLog(@"change");
-    [self updateSearchButtons];
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"dismiss");
-}
-
 - (void)updateSearchButtons {
     UITextField *field = [self.searchController.searchBar valueForKey:@"searchField"];
     field.attributedPlaceholder = [[NSAttributedString alloc]
@@ -182,6 +171,16 @@
     [right setImage:[right.currentImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
            forState:UIControlStateNormal];
     right.tintColor = UIColor.lightGrayColor;
+}
+
+#pragma mark - searchController
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    NSLog(@"present");
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+    NSLog(@"dismiss");
 }
 
 #pragma mark - fetchedResultsController delegate

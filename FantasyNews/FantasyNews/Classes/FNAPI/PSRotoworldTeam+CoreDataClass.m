@@ -20,12 +20,10 @@
 
 + (void)saveAllTeams:(void(^)(BOOL success))completion {
     [FNAPI.rotoworld teams:^(NSArray<RotoworldTeam *> *teams) {
-        for (RotoworldTeam *team in teams) {
-            if (![self teamForTeamID:team.teamID]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            for (RotoworldTeam *team in teams)
                 [self persistentTeamforTeam:team];
-                NSLog(@"Added %@", team.teamID);
-            }
-        }
+        });
         [FNCoreData.sharedInstance save];
         completion(YES);
     }];
@@ -46,8 +44,12 @@
 
 + (PSRotoworldTeam *)persistentTeamforTeam:(RotoworldTeam *)team {
     NSManagedObjectContext *context = FNCoreData.sharedInstance.context;
-    PSRotoworldTeam *psTeam = [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldTeam"
-                                                            inManagedObjectContext:context];
+    PSRotoworldTeam *psTeam = [self teamForTeamID:team.teamID];
+    if (!psTeam) {
+        psTeam = [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldTeam"
+                                               inManagedObjectContext:context];
+        NSLog(@"Added PSRotoworldTeam: %@", team.teamID);
+    }
     psTeam.teamID = team.teamID;
     psTeam.city = team.city;
     psTeam.name = team.name;

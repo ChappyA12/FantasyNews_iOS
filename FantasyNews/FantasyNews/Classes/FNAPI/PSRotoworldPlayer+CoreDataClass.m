@@ -42,7 +42,9 @@
 + (void)saveAllPlayers:(void(^)(BOOL success))completion {
     [FNAPI.rotoworld players:^(NSArray<RotoworldPlayer *> *players) {
         [FNAPI.fantasy playerMappingDictsForSeasonID:2019
-                                          completion:^(NSDictionary *first, NSDictionary *last, NSDictionary *firstLast) {
+                                          completion:^(NSDictionary *first,
+                                                       NSDictionary *last,
+                                                       NSDictionary *firstLast) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 for (RotoworldPlayer *player in players) {
                     NSInteger espnID = -1;
@@ -62,7 +64,6 @@
                     }
                     [self persistentPlayerforPlayer:player withEspnID:espnID];
                 }
-                NSLog(@"Added Players");
                 [FNCoreData.sharedInstance save];
                 completion(YES);
             });
@@ -95,13 +96,14 @@
     if (!psPlayer) {
         psPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldPlayer"
                                                  inManagedObjectContext:context];
+        psPlayer.rotoworldID = (int32_t)player.playerID;
+        psPlayer.birthday = player.birthday;
+        NSLog(@"Added PSRotoworldPlayer: %ld", player.playerID);
     }
-    psPlayer.rotoworldID = (int32_t)player.playerID;
     psPlayer.espnID = (int32_t)espnID;
     psPlayer.firstName = player.firstName;
     psPlayer.lastName = player.lastName;
     psPlayer.position = player.position;
-    psPlayer.birthday = player.birthday;
     if (psPlayer.teamID != player.team) {
         psPlayer.teamID = player.team;
         PSRotoworldTeam *team = [PSRotoworldTeam teamForTeamID:player.team];

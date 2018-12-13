@@ -45,12 +45,15 @@
 
 + (PSRotoworldNews *)persistentNewsforNews:(RotoworldNews *)news {
     NSManagedObjectContext *context = FNCoreData.sharedInstance.context;
-    PSRotoworldNews *psNews =
-        [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldNews"
-                                      inManagedObjectContext:context];
-    psNews.articleID = (int32_t)news.articleID;
-    psNews.date = news.date;
-    psNews.playerID = (int32_t)news.playerID;
+    PSRotoworldNews *psNews = [PSRotoworldNews newsForArticleID:news.articleID];
+    if (!psNews) {
+        psNews = [NSEntityDescription insertNewObjectForEntityForName:@"PSRotoworldNews"
+                                               inManagedObjectContext:context];
+        psNews.articleID = (int32_t)news.articleID;
+        psNews.date = news.date;
+        psNews.playerID = (int32_t)news.playerID;
+        NSLog(@"Added PSRotoworldNews: %ld", news.articleID);
+    }
     psNews.headline = news.headline;
     psNews.news = news.news;
     psNews.analysis = news.analysis;
@@ -77,12 +80,10 @@
 #pragma mark - private helper methods
 
 + (void)saveNews:(NSArray<RotoworldNews *> *)articles {
-    for (RotoworldNews *news in articles) {
-        if (![self newsForArticleID:news.articleID]) {
-            [self persistentNewsforNews:news];
-            NSLog(@"Added %ld", news.articleID);
-        }
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (RotoworldNews *news in articles)
+           [self persistentNewsforNews:news];
+    });
     [FNCoreData.sharedInstance save];
 }
 
